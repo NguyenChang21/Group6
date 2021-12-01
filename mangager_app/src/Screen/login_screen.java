@@ -11,6 +11,7 @@ public class login_screen extends JPanel {
     login_zone lg;
     private BufferedImage background;
 
+
     {
         try {
             background = ImageIO.read(new File("resource/login.png"));
