@@ -13,7 +13,7 @@ public class ava_panel extends JPanel {
 
     {
         try {
-            avatar = ImageIO.read(new File("src/resource/ava.png"));
+            avatar = ImageIO.read(new File("resource/ava.png"));
         } catch (IOException ex) {
             ex.printStackTrace();
         }
