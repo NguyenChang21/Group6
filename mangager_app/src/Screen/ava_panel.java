@@ -10,7 +10,6 @@ import java.io.IOException;
 public class ava_panel extends JPanel {
     private BufferedImage avatar;
 
-
     {
         try {
             avatar = ImageIO.read(new File("resource/ava.png"));
