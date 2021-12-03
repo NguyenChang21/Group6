@@ -5,6 +5,7 @@ import java.awt.*;
 
 public class middle_panel extends JPanel {
     public middle_panel(){
+        setOpaque(false);
         GridBagLayout gbl = new GridBagLayout();
         GridBagConstraints gbc = new GridBagConstraints();
         setLayout(gbl);
@@ -13,7 +14,7 @@ public class middle_panel extends JPanel {
         gbc.weightx = 0.01f;
         gbc.gridx = 0;
         JPanel p1 = new JPanel();
-        p1.setBackground(Color.BLUE);
+        p1.setOpaque(false);
         add(p1, gbc);
 
         gbc.weightx = 0.2f;
@@ -25,7 +26,7 @@ public class middle_panel extends JPanel {
         gbc.weightx = 0.01f;
         gbc.gridx = 2;
         JPanel p3 = new JPanel();
-        p3.setBackground(Color.BLUE);
+        p3.setOpaque(false);
         add(p3, gbc);
 
         gbc.weightx = 1;
@@ -37,7 +38,7 @@ public class middle_panel extends JPanel {
         gbc.weightx = 0.01f;
         gbc.gridx = 4;
         JPanel p5 = new JPanel();
-        p5.setBackground(Color.BLUE);
+        p5.setOpaque(false);
         add(p5, gbc);
 
     }

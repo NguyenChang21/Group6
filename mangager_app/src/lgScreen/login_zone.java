@@ -1,5 +1,6 @@
 package lgScreen;
 
+import prototype.ava_panel;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;

@@ -1,4 +1,4 @@
-package lgScreen;
+package prototype;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -18,8 +18,8 @@ public class ava_panel extends JPanel {
         }
     }
 
-    ava_panel(){
-        setPreferredSize(new Dimension(200, 200));
+    public ava_panel(){
+//        setPreferredSize(new Dimension(200, 200));
         setOpaque(false);
     }
 

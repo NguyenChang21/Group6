@@ -5,11 +5,14 @@ import java.awt.*;
 import java.awt.geom.Ellipse2D;
 
 public class rounded_button extends JButton {
+    Color color;
+    Color second_color;
     private int arc = 40;
-    public rounded_button(String label) {
+    public rounded_button(String label, Color color, Color second_color) {
         super(label);
         setFocusable(false);
-
+        this.color = color;
+        this.second_color = second_color;
 // This call causes the JButton not to paint
         // the background.
 // This allows us to paint a round background.
@@ -21,9 +24,9 @@ public class rounded_button extends JButton {
         if (getModel().isArmed()) {
 // You might want to make the highlight color
             // a property of the RoundButton class.
-            g.setColor(new Color(238, 104, 72));
+            g.setColor(second_color);
         } else {
-            g.setColor(new Color(234, 162, 115, 255));
+            g.setColor(color);
         }
         g.fillRoundRect(0, 0, getSize().width - 1,
                 getSize().height - 1, arc, arc);
@@ -35,7 +38,7 @@ public class rounded_button extends JButton {
 
     // Paint the border of the button using a simple stroke.
     protected void paintBorder(Graphics g) {
-        g.setColor(getForeground());
+        g.setColor(color);
         g.drawRoundRect(0, 0, getSize().width - 1,
                 getSize().height - 1, arc, arc);
     }
