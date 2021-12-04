@@ -34,7 +34,7 @@ public class rounded_panel extends JPanel {
                 graphics.setColor(getBackground());
             }
             graphics.fillRoundRect(0, 0, width-1, height-1, arcs.width, arcs.height); //paint background
-            graphics.setColor(new Color(165, 195, 127, 255));
+            graphics.setColor(backgroundColor);
             graphics.drawRoundRect(0, 0, width-1, height-1, arcs.width, arcs.height); //paint border
         }
 

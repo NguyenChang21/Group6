@@ -19,6 +19,10 @@ public class rounded_button extends JButton {
         setContentAreaFilled(false);
     }
 
+    public void setArc(int arc) {
+        this.arc = arc;
+    }
+
     // Paint the round background and label.
     protected void paintComponent(Graphics g) {
         if (getModel().isArmed()) {

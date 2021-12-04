@@ -1,10 +1,10 @@
 package mainScreen;
 
-import prototype.rounded_panel;
 import javax.swing.*;
 import java.awt.*;
 
 public class mainPanel extends JPanel {
+    protected middle_panel mid_panel;
     public mainPanel(){
 //        setPreferredSize(new Dimension(800, 600));
         setBackground(new Color(255, 255, 217));
@@ -22,18 +22,17 @@ public class mainPanel extends JPanel {
 //        gbc.gridheight = 17;
         add(p1, gbc);
 
-//        JPanel p2 = new JPanel();
-//        p2.setBackground(Color.BLUE);
-//        p2.setOpaque(false);
-//        gbc.weighty = 0.005f;
-//        gbc.gridy = 1;
-//        add(p2, gbc);
+        JPanel p2 = new JPanel();
+        p2.setOpaque(false);
+        gbc.weighty = 0.005f;
+        gbc.gridy = 1;
+        add(p2, gbc);
 
-        middle_panel p3 = new middle_panel();
-        p3.setBackground(Color.YELLOW);
+        mid_panel = new middle_panel();
+        mid_panel.setBackground(Color.YELLOW);
         gbc.weighty = 0.9f;
         gbc.gridy = 2;
-        add(p3, gbc);
+        add(mid_panel, gbc);
 
         JPanel p4 = new JPanel();
         p4.setBackground(Color.BLUE);
