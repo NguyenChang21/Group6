@@ -19,7 +19,6 @@ public class mainPanel extends JPanel {
         gbc.fill = GridBagConstraints.BOTH;
         gbc.gridx = 0;
         gbc.gridy = 0;
-//        gbc.gridheight = 17;
         add(p1, gbc);
 
         JPanel p2 = new JPanel();
