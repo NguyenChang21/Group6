@@ -18,7 +18,7 @@ public class login_panel extends rounded_panel {
 
         setLayout(new FlowLayout(FlowLayout.CENTER, 30, 10));
         username_label = new JLabel("User name: ");
-        username_label.setFont(new Font(null, Font.ITALIC, 16));
+        username_label.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 18));
 
         JPanel panel1 = new JPanel();
         panel1.setPreferredSize(new Dimension(320, 15));
@@ -51,7 +51,7 @@ public class login_panel extends rounded_panel {
 
 
         password_label = new JLabel("Password: ");
-        password_label.setFont(new Font(null, Font.ITALIC, 16));
+        password_label.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 18));
         forgot_pass = new JLabel("U forgot it????");
         forgot_pass.setFont(new Font(null, Font.ITALIC, 16));
 

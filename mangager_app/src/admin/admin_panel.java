@@ -2,14 +2,18 @@ package admin;
 
 import mainScreen.mainPanel;
 import prototype.rounded_button;
+import prototype.rounded_panel;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
-public class admin_panel extends mainPanel implements ActionListener {
+public class admin_panel extends mainPanel implements ActionListener, MouseListener {
     private int button_width;
+    CardLayout cl;
 
     rounded_button menu_button;
     rounded_button student_button;
@@ -18,6 +22,14 @@ public class admin_panel extends mainPanel implements ActionListener {
     rounded_button department_button;
     rounded_button schoolyear_button;
     rounded_button info_button;
+
+    rounded_panel menu_panel;
+    rounded_panel student_panel;
+    rounded_panel teacher_panel;
+    rounded_panel class_panel;
+    rounded_panel department_panel;
+    rounded_panel schoolyear_panel;
+    rounded_panel info_panel;
 
     Color c1 = new Color(234, 162, 133);
     Color c2 = new Color(240, 134, 84);
@@ -93,10 +105,49 @@ public class admin_panel extends mainPanel implements ActionListener {
         gbc.weighty = 1;
         gbc.gridy = 7;
         mid_panel.buttoncenter_panel.add(p1, gbc);
+
+        cl = new CardLayout();
+        mid_panel.view_panel.setLayout(cl);
+
+        menu_panel = new rounded_panel(70, Color.RED);
+        student_panel = new rounded_panel(70, Color.BLUE);
+        mid_panel.view_panel.add(menu_panel, "menu");
+        mid_panel.view_panel.add(student_panel, "student");
+        cl.show(mid_panel.view_panel,"menu");
+
+
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == menu_button){
+            cl.show(mid_panel.view_panel, "menu");
+        }
+        if (e.getSource() == student_button){
+            cl.show(mid_panel.view_panel, "student");
+        }
+    }
 
+    @Override
+    public void mouseClicked(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
     }
 }

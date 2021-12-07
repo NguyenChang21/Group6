@@ -19,7 +19,7 @@ public class ava_panel extends JPanel {
     }
 
     public ava_panel(){
-//        setPreferredSize(new Dimension(200, 200));
+        setPreferredSize(new Dimension(200, 200));
         setOpaque(false);
     }
 
