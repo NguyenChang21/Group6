@@ -12,10 +12,12 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class admin_panel extends mainPanel implements ActionListener, MouseListener {
+    JPanel p1;
     Color c1 = new Color(234, 162, 133);
     Color c2 = new Color(240, 134, 84);
 
     private int button_posy = 0;
+    private int index;
     CardLayout cl;
 
     GridBagLayout gbl;
@@ -39,6 +41,11 @@ public class admin_panel extends mainPanel implements ActionListener, MouseListe
 
     rounded_button[] rbt = {menu_button, student_button, teacher_button
             , class_button, department_button, schoolyear_button, info_button};
+
+    option_panel op = new option_panel();
+    boolean optionpanel_opened = false;
+    int optionpanel_posy;
+
     public admin_panel(){
         init();
     }
@@ -55,6 +62,8 @@ public class admin_panel extends mainPanel implements ActionListener, MouseListe
 
 
 
+        op.edit_button.addActionListener(this);
+        op.view_button.addActionListener(this);
 
         for (rounded_button item:rbt ) {
             item.addActionListener(this);
@@ -66,7 +75,7 @@ public class admin_panel extends mainPanel implements ActionListener, MouseListe
         }
 
         gbc.fill = GridBagConstraints.HORIZONTAL;
-        JPanel p1 = new JPanel();
+        p1 = new JPanel();
         p1.setOpaque(false);
         gbc.weighty = 1;
         gbc.gridy = button_posy++;
@@ -91,16 +100,21 @@ public class admin_panel extends mainPanel implements ActionListener, MouseListe
         mid_panel.view_panel.add(schoolyear_panel, "schoolyear");
         mid_panel.view_panel.add(info_panel, "info");
         cl.show(mid_panel.view_panel,"menu");
-
-
-
     }
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == menu_button){
             cl.show(mid_panel.view_panel, "menu");
-            removeTheother(mid_panel.buttoncenter_panel, (Component) e.getSource());
+
         }
+        if (e.getSource() == op.view_button){
+            System.out.println("Viewing");
+        }
+        if (e.getSource() == op.edit_button){
+            System.out.println("Edizting");
+        }
+
+
         if (e.getSource() == student_button){
             cl.show(mid_panel.view_panel, "student");
             removeTheother(mid_panel.buttoncenter_panel, (Component) e.getSource());
@@ -155,18 +169,46 @@ public class admin_panel extends mainPanel implements ActionListener, MouseListe
     }
 
     public void removeTheother(Container container, Component e){
-        int index = checkin((rounded_button) e) + 1;
-        button_posy = index;
-        for (; index < 7; index++) {
-            removeObject(container, (Component) rbt[index]);
-        }
-        System.out.println(index);
-        option_panel op = new option_panel();
-        gbc.gridy = button_posy++;
-        container.add(op, gbc);
-        for (; button_posy < 7; button_posy++) {
-            gbc.gridy = button_posy;
-            container.add(rbt[button_posy], gbc);
+        if (optionpanel_opened){
+            removeObject(container, (Component) op);
+            for (int i = index; i < 7; i++) {
+                removeObject(container, (Component) rbt[i]);
+            }
+            for (int i = index; i < 7; i++){
+                gbc.gridy = i + 1;
+                container.add(rbt[i], gbc);
+                container.revalidate();
+                container.repaint();
+            }
+            index = checkin((rounded_button) e) + 1;
+            for (int i = index; i < 7; i++) {
+                removeObject(container, (Component) rbt[i]);
+            }
+            gbc.gridy = index + 1;
+            gbc.weighty = 0.1f;
+            container.add(op, gbc);
+            for (int i = index; i < 7; i++){
+                gbc.gridy = i + 2;
+                container.add(rbt[i], gbc);
+                container.revalidate();
+                container.repaint();
+            }
+        } else {
+            removeObject(container, p1);
+            index = checkin((rounded_button) e) + 1;
+            for (int i = index; i < 7; i++) {
+                removeObject(container, (Component) rbt[i]);
+            }
+            gbc.gridy = index;
+            gbc.weighty = 0.1f;
+            container.add(op, gbc);
+            for (int i = index; i < 7; i++){
+                gbc.gridy= i + 1;
+                container.add(rbt[i], gbc);
+                container.revalidate();
+                container.repaint();
+            }
+            optionpanel_opened = true;
         }
     }
     public void removeObject(Container container, Component e){
