@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 public class Button_panel extends JPanel implements ActionListener {
     rounded_button signin;
     rounded_button close;
+    private int clicked = 0;
 
     public Button_panel(){
         setPreferredSize(new Dimension(400, 100));
@@ -30,6 +31,14 @@ public class Button_panel extends JPanel implements ActionListener {
         close.setFont(new Font(null, Font.BOLD, 20));
         close.addActionListener(this);
         add(close);
+    }
+
+    public int getClicked() {
+        return clicked;
+    }
+
+    public void setClicked(int clicked) {
+        this.clicked = clicked;
     }
 
     @Override

@@ -8,11 +8,24 @@ public class rounded_button extends JButton {
     Color color;
     Color second_color;
     private int arc = 40;
+    private int clicked = 0;
+    private String name;
     public rounded_button(String label, Color color, Color second_color) {
         super(label);
         setFocusable(false);
         this.color = color;
         this.second_color = second_color;
+// This call causes the JButton not to paint
+        // the background.
+// This allows us to paint a round background.
+        setContentAreaFilled(false);
+    }
+    public rounded_button(String label, Color color, Color second_color, String name) {
+        super(label);
+        setFocusable(false);
+        this.color = color;
+        this.second_color = second_color;
+        this.name = name;
 // This call causes the JButton not to paint
         // the background.
 // This allows us to paint a round background.
@@ -58,5 +71,23 @@ public class rounded_button extends JButton {
                     getWidth(), getHeight());
         }
         return shape.contains(x, y);
+    }
+
+    public int getClicked() {
+        return clicked;
+    }
+
+    public void setClicked(int clicked) {
+        this.clicked = clicked;
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
     }
 }

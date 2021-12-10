@@ -40,12 +40,12 @@ public class option_panel extends JPanel {
         gbc1.fill = GridBagConstraints.HORIZONTAL;
 
         gbc1.gridy = 0;
-        view_button = new rounded_button("Xem ", c1, c2);
+        view_button = new rounded_button("Xem ", c1, c2, "view");
         view_button.setPreferredSize(new Dimension(100, 30));
         p2.add(view_button, gbc1);
 
         gbc1.gridy = 1;
-        edit_button = new rounded_button("Chỉnh sửa", c1, c2);
+        edit_button = new rounded_button("Chỉnh sửa", c1, c2, "edit");
         edit_button.setPreferredSize(new Dimension(100, 30));
         p2.add(edit_button, gbc1);
     }

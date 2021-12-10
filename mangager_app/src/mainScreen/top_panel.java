@@ -59,13 +59,13 @@ public class top_panel extends JPanel implements ActionListener {
         add(p3, gbc);
 
         sign_out = new rounded_button("Exit",
-                new Color(245, 220, 100), new Color(220, 159, 56));
+                new Color(245, 220, 100), new Color(220, 159, 56), "signout");
         sign_out.setPreferredSize(new Dimension(130, 50));
         sign_out.setFont(new Font(null, Font.BOLD, 20));
         sign_out.addActionListener(this);
 //        sign_out.setForeground(new Color(255,255,255));
         setting = new rounded_button("Setting",
-                new Color(164, 248, 203, 255), new Color(46, 135, 198, 220));
+                new Color(164, 248, 203, 255), new Color(46, 135, 198, 220), "exit");
         setting.setPreferredSize(new Dimension(130, 50));
         setting.setFont(new Font(null, Font.BOLD, 20));
 

@@ -31,13 +31,13 @@ public class admin_panel extends mainPanel implements ActionListener, MouseListe
     Schoolyear_panel schoolyear_panel;
     Info_panel info_panel;
 
-    rounded_button menu_button = new rounded_button("Trang chủ", c1, c2);
-    rounded_button student_button = new rounded_button("Sinh viên", c1, c2);
-    rounded_button teacher_button = new rounded_button("Giảng viên", c1, c2);
-    rounded_button class_button = new rounded_button("Lớp học", c1, c2);
-    rounded_button department_button = new rounded_button("Khoa", c1, c2);
-    rounded_button schoolyear_button = new rounded_button("Khóa", c1, c2);
-    rounded_button info_button = new rounded_button("Thông tin", c1, c2);
+    rounded_button menu_button = new rounded_button("Trang chủ", c1, c2, "menu");
+    rounded_button student_button = new rounded_button("Sinh viên", c1, c2, "student");
+    rounded_button teacher_button = new rounded_button("Giảng viên", c1, c2, "teacher");
+    rounded_button class_button = new rounded_button("Lớp học", c1, c2, "class");
+    rounded_button department_button = new rounded_button("Khoa", c1, c2, "department");
+    rounded_button schoolyear_button = new rounded_button("Khóa", c1, c2, "schoolyear");
+    rounded_button info_button = new rounded_button("Thông tin", c1, c2, "info");
 
     rounded_button[] rbt = {menu_button, student_button, teacher_button
             , class_button, department_button, schoolyear_button, info_button};
@@ -92,56 +92,57 @@ public class admin_panel extends mainPanel implements ActionListener, MouseListe
         schoolyear_panel = new Schoolyear_panel(70, Color.ORANGE);
         info_panel = new Info_panel(70, Color.YELLOW);
 
-        mid_panel.view_panel.add(menu_panel, "menu");
-        mid_panel.view_panel.add(student_panel, "student");
-        mid_panel.view_panel.add(teacher_panel, "teacher");
-        mid_panel.view_panel.add(class_panel, "class");
-        mid_panel.view_panel.add(department_panel, "department");
-        mid_panel.view_panel.add(schoolyear_panel, "schoolyear");
-        mid_panel.view_panel.add(info_panel, "info");
-        cl.show(mid_panel.view_panel,"menu");
+        mid_panel.view_panel.add(menu_panel, menu_button.getName());
+        mid_panel.view_panel.add(student_panel, student_button.getName());
+        mid_panel.view_panel.add(teacher_panel, teacher_button.getName());
+        mid_panel.view_panel.add(class_panel, class_button.getName());
+        mid_panel.view_panel.add(department_panel, department_button.getName());
+        mid_panel.view_panel.add(schoolyear_panel, schoolyear_button.getName());
+        mid_panel.view_panel.add(info_panel, info_button.getName());
+        cl.show(mid_panel.view_panel,menu_button.getName());
     }
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == menu_button){
-            cl.show(mid_panel.view_panel, "menu");
+            cl.show(mid_panel.view_panel, menu_button.getName());
 
         }
-        if (e.getSource() == op.view_button){
-            System.out.println("Viewing");
-        }
-        if (e.getSource() == op.edit_button){
-            System.out.println("Edizting");
-        }
-
-
         if (e.getSource() == student_button){
-            cl.show(mid_panel.view_panel, "student");
-            removeTheother(mid_panel.buttoncenter_panel, (Component) e.getSource());
+            removeTheother(mid_panel.buttoncenter_panel, e);
         }
         if (e.getSource() == teacher_button){
-            cl.show(mid_panel.view_panel, "teacher");
-            removeTheother(mid_panel.buttoncenter_panel, (Component) e.getSource());
+            removeTheother(mid_panel.buttoncenter_panel, e);
 
         }
         if (e.getSource() == class_button){
-            cl.show(mid_panel.view_panel, "class");
-            removeTheother(mid_panel.buttoncenter_panel, (Component) e.getSource());
+            removeTheother(mid_panel.buttoncenter_panel,e);
         }
         if (e.getSource() == department_button){
-            cl.show(mid_panel.view_panel, "department");
-            removeTheother(mid_panel.buttoncenter_panel, (Component) e.getSource());
+            removeTheother(mid_panel.buttoncenter_panel, e);
 
         }
         if (e.getSource() == schoolyear_button){
-            cl.show(mid_panel.view_panel, "schoolyear");
-            removeTheother(mid_panel.buttoncenter_panel, (Component) e.getSource());
+            removeTheother(mid_panel.buttoncenter_panel, e);
 
         }
         if (e.getSource() == info_button){
-            cl.show(mid_panel.view_panel, "info");
-            removeTheother(mid_panel.buttoncenter_panel, (Component) e.getSource());
+            removeTheother(mid_panel.buttoncenter_panel, e);
 
+        }
+
+        if (e.getSource() == op.view_button){
+            for (rounded_button item:rbt) {
+                if(item.getClicked() == 1){
+                    cl.show(mid_panel.view_panel, item.getName());
+                }
+            }
+        }
+        if (e.getSource() == op.edit_button){
+            for (rounded_button item:rbt) {
+                if(item.getClicked() == 1){
+                    cl.show(mid_panel.view_panel, item.getName());
+                }
+            }
         }
     }
 
@@ -168,8 +169,16 @@ public class admin_panel extends mainPanel implements ActionListener, MouseListe
     public void mouseExited(MouseEvent e) {
     }
 
-    public void removeTheother(Container container, Component e){
+    public void removeTheother(Container container, ActionEvent e){
         if (optionpanel_opened){
+            for (rounded_button item:rbt) {
+                item.setClicked(0);
+                if (e.getSource() == item){
+                    item.setClicked(1);
+                }
+            }
+
+
             removeObject(container, (Component) op);
             for (int i = index; i < 7; i++) {
                 removeObject(container, (Component) rbt[i]);
@@ -180,7 +189,7 @@ public class admin_panel extends mainPanel implements ActionListener, MouseListe
                 container.revalidate();
                 container.repaint();
             }
-            index = checkin((rounded_button) e) + 1;
+            index = checkin((rounded_button) e.getSource()) + 1;
             for (int i = index; i < 7; i++) {
                 removeObject(container, (Component) rbt[i]);
             }
@@ -194,8 +203,14 @@ public class admin_panel extends mainPanel implements ActionListener, MouseListe
                 container.repaint();
             }
         } else {
+            for (rounded_button item:rbt) {
+                if (e.getSource() == item){
+                    item.setClicked(1);
+                }
+            }
+            menu_button.setClicked(1);
             removeObject(container, p1);
-            index = checkin((rounded_button) e) + 1;
+            index = checkin((rounded_button) e.getSource()) + 1;
             for (int i = index; i < 7; i++) {
                 removeObject(container, (Component) rbt[i]);
             }

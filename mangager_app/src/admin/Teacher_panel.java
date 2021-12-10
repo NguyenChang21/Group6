@@ -9,4 +9,5 @@ public class Teacher_panel extends rounded_panel{
         setOpaque(false);
 
     }
+
 }

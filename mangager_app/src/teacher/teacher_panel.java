@@ -26,7 +26,7 @@ public class teacher_panel extends mainPanel implements ActionListener {
         gbc.weightx = 1;
         gbc.weighty = 0.1f;
 
-        menu_button = new rounded_button("Trang chủ", c1, c2);
+        menu_button = new rounded_button("Trang chủ", c1, c2,"menu");
         menu_button.addActionListener(this);
         menu_button.setPreferredSize(new Dimension(100, 60));
         menu_button.setFont(new Font(null, Font.BOLD, 20));
@@ -35,7 +35,7 @@ public class teacher_panel extends mainPanel implements ActionListener {
         mid_panel.buttoncenter_panel.add(menu_button, gbc);
 
 
-        class_button = new rounded_button("Lớp học", c1, c2);
+        class_button = new rounded_button("Lớp học", c1, c2, "class");
         class_button.addActionListener(this);
         class_button.setPreferredSize(new Dimension(100, 60));
         class_button.setFont(new Font(null, Font.BOLD, 20));
@@ -43,7 +43,7 @@ public class teacher_panel extends mainPanel implements ActionListener {
         gbc.gridy = 1;
         mid_panel.buttoncenter_panel.add(class_button, gbc);
 
-        info_button = new rounded_button("Thông tin", c1, c2);
+        info_button = new rounded_button("Thông tin", c1, c2, "info");
         info_button.addActionListener(this);
         info_button.setPreferredSize(new Dimension(100, 60));
         info_button.setFont(new Font(null, Font.BOLD, 20));
