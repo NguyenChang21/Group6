@@ -13,6 +13,7 @@ import java.awt.event.MouseListener;
 
 public class admin_panel extends mainPanel implements ActionListener, MouseListener {
     JPanel p1;
+
     Color c1 = new Color(234, 162, 133);
     Color c2 = new Color(240, 134, 84);
 
@@ -84,12 +85,12 @@ public class admin_panel extends mainPanel implements ActionListener, MouseListe
         cl = new CardLayout();
         mid_panel.view_panel.setLayout(cl);
 
-        menu_panel = new Menu_panel(70, Color.RED);
-        student_panel = new Student_panel(70, Color.BLUE);
-        teacher_panel = new Teacher_panel(70, Color.GREEN);
-        class_panel = new Class_panel(70, Color.PINK);
-        department_panel = new Department_panel(70, Color.lightGray);
-        schoolyear_panel = new Schoolyear_panel(70, Color.ORANGE);
+        menu_panel = new Menu_panel(70, new Color(195, 175, 145));
+        student_panel = new Student_panel(70, new Color(195, 175, 145));
+        teacher_panel = new Teacher_panel(70, new Color(195, 175, 145));
+        class_panel = new Class_panel(70, new Color(195, 175, 145));
+        department_panel = new Department_panel(70, new Color(195, 175, 145));
+        schoolyear_panel = new Schoolyear_panel(70, new Color(195, 175, 145));
         info_panel = new Info_panel(70, Color.YELLOW);
 
         mid_panel.view_panel.add(menu_panel, menu_button.getName());

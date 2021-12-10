@@ -7,7 +7,7 @@ public class mainPanel extends JPanel {
     protected middle_panel mid_panel;
     public mainPanel(){
 //        setPreferredSize(new Dimension(800, 600));
-        setBackground(new Color(255, 255, 217));
+//        setBackground(new Color(255, 255, 217));
         GridBagLayout gbl = new GridBagLayout();
         setLayout(gbl);
         GridBagConstraints gbc = new GridBagConstraints();
@@ -41,5 +41,18 @@ public class mainPanel extends JPanel {
         add(p4, gbc);
 
 
+    }
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        Graphics2D g2d = (Graphics2D) g;
+        g2d.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+        int w = getWidth();
+        int h = getHeight();
+        Color color1 = new Color(249, 246, 210);
+        Color color2 = new Color(242, 226, 103);
+        GradientPaint gp = new GradientPaint(0, 0, color1, 0, h, color2);
+        g2d.setPaint(gp);
+        g2d.fillRect(0, 0, w, h);
     }
 }
