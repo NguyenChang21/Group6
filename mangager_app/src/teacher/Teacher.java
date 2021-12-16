@@ -1,22 +1,42 @@
 package teacher;
 
+import java.util.Date;
+
 public class Teacher {
     private String firstname;
     private String lastname;
     private String gender;
     private String email;
     private String  ethnic_group;
-    private int id_number;
+    private String id_number;
     private String address;
     private String religion;
     private String department;
-    private int phone_number;
+    private String phone_number;
     private String username;
     private String password;
     private String status;
     private String teaching_class;
     private String qualification;
     private String extra_notes;
+    private Date date_of_birth;
+    private String hometown;
+
+    public Date getDate_of_birth() {
+        return date_of_birth;
+    }
+
+    public void setDate_of_birth(Date date_of_birth) {
+        this.date_of_birth = date_of_birth;
+    }
+
+    public String getHometown() {
+        return hometown;
+    }
+
+    public void setHometown(String hometown) {
+        this.hometown = hometown;
+    }
 
     public String getFirstname() {
         return firstname;
@@ -58,11 +78,11 @@ public class Teacher {
         this.ethnic_group = ethnic_group;
     }
 
-    public int getId_number() {
+    public String getId_number() {
         return id_number;
     }
 
-    public void setId_number(int id_number) {
+    public void setId_number(String id_number) {
         this.id_number = id_number;
     }
 
@@ -90,11 +110,11 @@ public class Teacher {
         this.department = department;
     }
 
-    public int getPhone_number() {
+    public String getPhone_number() {
         return phone_number;
     }
 
-    public void setPhone_number(int phone_number) {
+    public void setPhone_number(String phone_number) {
         this.phone_number = phone_number;
     }
 

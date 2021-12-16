@@ -20,10 +20,16 @@ public class Schoolyear_panel extends rounded_panel{
         p1.setOpaque(false);
 
         JPanel ptop = new JPanel();
-        ptop.setBackground(Color.BLUE);
+        ptop.setOpaque(false);
+        ptop.setLayout(new FlowLayout(FlowLayout.LEFT, 50, 0));
+        logo_panel logo = new logo_panel();
+        logo.setPreferredSize(new Dimension(100, 130));
+        ptop.add(logo);
 
         JPanel pmid = new JPanel();
         pmid.setBackground(Color.YELLOW);
+        pmid.setLayout(new FlowLayout());
+
 
         JPanel p2 = new JPanel();
         p2.setOpaque(false);
@@ -35,7 +41,7 @@ public class Schoolyear_panel extends rounded_panel{
         gbc.gridy = 0;
         add(p1, gbc);
 
-        gbc.weighty = 0.25;
+        gbc.weighty = 0.03;
         gbc.gridy = 1;
         add(ptop, gbc);
 
@@ -46,5 +52,10 @@ public class Schoolyear_panel extends rounded_panel{
         gbc.weighty = 0.001;
         gbc.gridy = 3;
         add(p2, gbc);
+
+
+    }
+    public void schoolyear_count(){
+
     }
 }
