@@ -24,7 +24,7 @@ public class main {
             st1.setDate_of_birth( sdf.parse("25/12/2002"));
             conn = ConnectionUtils.openConnection();
 
-            ResultSet rs = exe.searchStudent(st1, conn, 20001737);
+            ResultSet rs = exe.searchStudent(conn, 20001737);
             while(rs.next()){
                 showUserInfo(rs);
             }
