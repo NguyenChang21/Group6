@@ -123,7 +123,7 @@ public class admin_panel extends mainPanel implements ActionListener, MouseListe
 
         }
         if (e.getSource() == schoolyear_button){
-            removeTheother(mid_panel.buttoncenter_panel, e);
+            cl.show(mid_panel.view_panel, schoolyear_button.getName());
 
         }
         if (e.getSource() == info_button){

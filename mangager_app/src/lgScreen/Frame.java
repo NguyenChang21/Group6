@@ -1,5 +1,6 @@
 package lgScreen;
 
+import admin.Student_view_panel;
 import admin.admin_panel;
 import student.student_panel;
 import teacher.teacher_panel;
