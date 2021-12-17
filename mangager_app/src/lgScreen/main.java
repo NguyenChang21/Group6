@@ -32,6 +32,7 @@ public class main {
 //            e.printStackTrace();
 //        }
         new Frame();
+
     }
     private static void showUserInfo(ResultSet rs) throws SQLException {
         System.out.println("Id: " + rs.getInt("msv"));
