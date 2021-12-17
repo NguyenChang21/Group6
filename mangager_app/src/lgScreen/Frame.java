@@ -10,7 +10,7 @@ public class Frame extends JFrame {
     public Frame(){
         setMinimumSize(new Dimension(1000, 640));
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        add(new admin_panel());
+        add(new Student_view_panel(40, Color.WHITE));
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
