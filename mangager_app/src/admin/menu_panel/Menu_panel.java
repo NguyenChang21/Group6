@@ -1,4 +1,4 @@
-package admin;
+package admin.menu_panel;
 import prototype.rounded_panel;
 
 import javax.swing.*;

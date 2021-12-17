@@ -1,4 +1,4 @@
-package admin;
+package admin.student_panel;
 
 import prototype.rounded_button;
 import prototype.textfield_type;
@@ -10,7 +10,8 @@ import java.awt.event.ActionListener;
 
 public class Student_view_toppanel extends JPanel implements ActionListener {
     rounded_button find;
-    public Student_view_toppanel(int radius, Color bgColor) {
+    public Student_view_toppanel() {
+        setOpaque(false);
         GridBagLayout gbl = new GridBagLayout();
         GridBagConstraints gbc = new GridBagConstraints();
         setLayout(gbl);
@@ -54,15 +55,15 @@ public class Student_view_toppanel extends JPanel implements ActionListener {
 //        p6.setBackground(Color.cyan);
 
         JPanel p7 = new JPanel();
-        p7.setBackground(Color.cyan);
+        p7.setOpaque(false);
         p7.add(addId);
 
         JPanel p8 = new JPanel();
-        p8.setBackground(Color.cyan);
+        p8.setOpaque(false);
         p8.add(getId);
 
         JPanel p9 = new JPanel();
-        p9.setBackground(Color.cyan);
+        p9.setOpaque(false);
         p9.add(find);
 
 //        gbc.gridy = 0;

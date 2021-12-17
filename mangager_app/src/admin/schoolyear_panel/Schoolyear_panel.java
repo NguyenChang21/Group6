@@ -1,6 +1,6 @@
-package admin;
+package admin.schoolyear_panel;
+import prototype.logo_panel;
 import prototype.rounded_panel;
-import prototype.rounded_button;
 import student.Student;
 
 import javax.swing.*;

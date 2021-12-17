@@ -1,17 +1,12 @@
-package admin;
-
-import prototype.rounded_panel;
+package admin.student_panel;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class Student_view_middlepanel extends rounded_panel {
-    public Student_view_middlepanel(int radius) {
-        super(radius);
-    }
+public class Student_view_middlepanel extends JPanel {
 
-    public Student_view_middlepanel(int radius, Color bgColor) {
-        super(radius, bgColor);
+    public Student_view_middlepanel() {
+
         GridBagLayout gbl = new GridBagLayout();
         GridBagConstraints gbc = new GridBagConstraints();
         setLayout(gbl);
@@ -19,19 +14,19 @@ public class Student_view_middlepanel extends rounded_panel {
         gbc.weighty=1;
         gbc.fill = GridBagConstraints.BOTH;
         JPanel p1 = new JPanel();
-        p1.setBackground(Color.cyan);
+        p1.setOpaque(false);
 
         JPanel p2 = new JPanel();
-        p2.setBackground(Color.cyan);
+        p2.setOpaque(false);
 
         JPanel p3 = new JPanel();
-        p3.setBackground(Color.cyan);
+        p3.setOpaque(false);
 
-        JPanel p4 = new Student_view_mini_middel_panel(4,Color.DARK_GRAY);
+        JPanel p4 = new Student_view_mini_middel_panel();
         p4.setOpaque(false);
 
         JPanel p5 = new JPanel();
-        p5.setBackground(Color.cyan);
+        p5.setOpaque(false);
 
 
         gbc.gridheight = 3;

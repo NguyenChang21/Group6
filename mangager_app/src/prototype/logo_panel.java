@@ -1,4 +1,4 @@
-package admin;
+package prototype;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;

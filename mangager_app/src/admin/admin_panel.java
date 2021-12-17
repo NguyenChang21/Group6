@@ -1,5 +1,12 @@
 package admin;
 
+import admin.class_panel.Class_panel;
+import admin.department_panel.Department_panel;
+import admin.info_panel.Info_panel;
+import admin.menu_panel.Menu_panel;
+import admin.schoolyear_panel.Schoolyear_panel;
+import admin.student_panel.Student_panel;
+import admin.teacher_panel.Teacher_panel;
 import mainScreen.mainPanel;
 import prototype.rounded_button;
 import prototype.option_panel;

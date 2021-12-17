@@ -1,4 +1,4 @@
-package admin;
+package admin.student_panel;
 import prototype.rounded_panel;
 import javax.swing.*;
 import java.awt.*;
@@ -18,15 +18,15 @@ public class Student_view_panel extends rounded_panel  {
         gbc.weightx=1;
         gbc.weighty=1;
         gbc.fill = GridBagConstraints.BOTH;
-        JPanel p1 = new Student_view_toppanel(4,Color.cyan);
-        p1.setBackground(Color.cyan);
+        JPanel p1 = new Student_view_toppanel();
+        p1.setOpaque(false);
 
-        JPanel p2 = new Student_view_middlepanel(4,Color.cyan);
-        p2.setBackground(Color.blue);
+        JPanel p2 = new Student_view_middlepanel();
+        p2.setOpaque(false);
 
 
         JPanel p3 = new JPanel();
-        p3.setBackground(Color.cyan);
+        p3.setOpaque(false);
 
         gbc.weighty = 0.08;
         gbc.gridy = 0;

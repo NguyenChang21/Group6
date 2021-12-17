@@ -1,4 +1,4 @@
-package admin;
+package admin.department_panel;
 import prototype.rounded_panel;
 
 import java.awt.*;

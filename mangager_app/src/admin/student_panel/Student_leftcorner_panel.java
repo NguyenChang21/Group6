@@ -1,55 +1,44 @@
-package admin;
-
+package admin.student_panel;
 import prototype.rounded_panel;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class Student_view_mini_middel_panel extends JPanel {
-    public Student_view_mini_middel_panel(int radius, Color bgColor) {
-        GridBagLayout gbl = new GridBagLayout();
-        GridBagConstraints gbc = new GridBagConstraints();
-        setLayout(gbl);
-        gbc.weightx=1;
-        gbc.weighty=1;
-
-        gbc.fill = GridBagConstraints.BOTH;
-
-        JPanel p1 = new rounded_panel(50,Color.BLACK);
-        p1.setOpaque(false);
-
-        JPanel p2 = new JPanel();
-        p2.setBackground(Color.cyan);
-
-        JPanel p3 = new rounded_panel(50,Color.DARK_GRAY);
-        p3.setOpaque(false);
-
-        JPanel p4 = new JPanel();
-        p4.setBackground(Color.cyan);
-
-        JPanel p5 = new rounded_panel(50,Color.DARK_GRAY);
-        p5.setOpaque(false);
+public class Student_leftcorner_panel extends rounded_panel {
+    public Student_leftcorner_panel(int radius, Color bgColor) {
+        super(radius, bgColor);
 
 
-        JLabel name = new JLabel();
-        name.setText("Họ và tên:");
-        name.setFont(new Font(null, Font.BOLD, 20));
-        p1.add(name);
+
         JTextField fname = new JTextField();
         fname.setFont(new Font(null, Font.BOLD, 20));
         fname.setPreferredSize(new Dimension(350, 40));
         fname.setAlignmentY(Component.BOTTOM_ALIGNMENT);
         fname.setHorizontalAlignment(JTextField.CENTER);
-        p1.add(fname);
-        JLabel dob = new JLabel();
-        dob.setText("Ngày sinh:");
-        dob.setFont(new Font(null, Font.BOLD, 20));
+
+
+        JLabel name = new JLabel();
+        name.setText("Họ và tên:");
+        name.setFont(new Font(null, Font.BOLD, 20));
+        name.setLabelFor(fname);
+        add(name);
+        add(fname);
+
+
+
 
         JTextField fdob = new JTextField();
         fdob.setFont(new Font(null, Font.BOLD, 20));
         fdob.setPreferredSize(new Dimension(350, 40));
         fdob.setAlignmentY(Component.BOTTOM_ALIGNMENT);
         fdob.setHorizontalAlignment(JTextField.CENTER);
+
+        JLabel dob = new JLabel();
+        dob.setText("Ngày sinh:");
+        dob.setFont(new Font(null, Font.BOLD, 20));
+        dob.setLabelFor(fdob);
+        add(dob);
+        add(fdob);
 
         JLabel gender = new JLabel();
         gender.setText("Giới tính:");
@@ -101,35 +90,6 @@ public class Student_view_mini_middel_panel extends JPanel {
         fphone_number.setPreferredSize(new Dimension(350, 40));
         fphone_number.setAlignmentY(Component.BOTTOM_ALIGNMENT);
         fphone_number.setHorizontalAlignment(JTextField.CENTER);
-
-        gbc.gridy = 0;
-        gbc.gridx = 0;
-        add(p1,gbc);
-
-        gbc.weightx = 0.01;
-        gbc.gridheight = 3;
-        gbc.gridx =1;
-        gbc.gridy =0;
-        add(p2,gbc);
-
-        gbc.weightx = 0.7;
-        gbc.gridy = 0;
-        gbc.gridx = 2;
-        add(p3,gbc);
-        gbc.gridheight = 1;
-        gbc.weighty=0.01;
-        gbc.gridx= 0;
-        gbc.gridy = 1;
-        add(p4,gbc);
-        gbc.weightx = 1;
-        gbc.weighty=0.3;
-        gbc.gridx = 0;
-        gbc.gridy = 2;
-        add(p5,gbc);
-
-
-
-
 
     }
 }
