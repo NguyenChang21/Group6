@@ -21,7 +21,7 @@ public class login_screen extends JPanel {
 
 
     public login_screen(){
-        setPreferredSize(new Dimension(800, 600));
+        setMinimumSize(new Dimension(1000, 650));
         setLayout(new BorderLayout());
 
         lg = new login_zone();

@@ -5,13 +5,19 @@ import prototype.textfield_type;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
-public class login_panel extends rounded_panel {
-    static textfield_type name_field;
-    static textfield_type pass_field;
+public class login_panel extends rounded_panel implements ActionListener {
+    public textfield_type name_field;
+    public textfield_type pass_field;
     JLabel username_label;
     JLabel password_label;
     JLabel forgot_pass;
+
+    Button_panel button_panel;
     public login_panel(int radius, Color bgColor) {
         super(radius, bgColor);
 
@@ -102,8 +108,57 @@ public class login_panel extends rounded_panel {
 
         add(pass_field);
 
-        add(new Button_panel());
+        button_panel = new Button_panel();
+        button_panel.close.addActionListener(this);
+        button_panel.signin.addActionListener(this);
+        add(button_panel);
     }
 
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == button_panel.close){
+            System.exit(0);
+        }
+        if (e.getSource() == button_panel.signin){
+            if (name_field.getText().equals("admin")){
+                try {
+                    ResultSet rs = main.exe.searchAdmin(main.conn);
+                    while (rs.next()){
+                        if ( pass_field.getText().equals(rs.getString("password"))){
+                            Frame.cl.show(Frame.constpanel, "admin");
+                        }
+                    }
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+
+            }
+            else if (name_field.getText().chars().allMatch( Character::isDigit )){
+                try {
+                    ResultSet rs = main.exe.searchStudentlogin(main.conn, name_field.getText());
+                    while (rs.next()) {
+                        if (pass_field.getText().equals(rs.getString("password"))) {
+                            Frame.cl.show(Frame.constpanel, "student");
+                        }
+                    }
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+            else {
+                try {
+                    ResultSet rs = main.exe.searchTeacherlogin(main.conn, name_field.getText());
+                    while (rs.next()) {
+                        if (pass_field.getText().equals(rs.getString("password"))) {
+                            Frame.cl.show(Frame.constpanel, "teacher");
+                        }
+                    }
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+
+        }
+    }
 }

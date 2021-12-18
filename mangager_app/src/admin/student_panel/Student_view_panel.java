@@ -13,7 +13,6 @@ import database_connector.ExecuteSQL;
 public class Student_view_panel extends rounded_panel implements ActionListener {
     Student_view_toppanel ptop;
     Student_view_middlepanel pmid;
-    ExecuteSQL exe = new ExecuteSQL();
 
     public Student_view_panel(int radius) {
         super(radius);
@@ -60,9 +59,9 @@ public class Student_view_panel extends rounded_panel implements ActionListener 
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == ptop.find){
             try {
-                ResultSet rs = exe.searchStudent(main.conn,Integer.parseInt(ptop.getId.getText()) );
+                ResultSet rs = main.exe.searchStudent(main.conn,Integer.parseInt(ptop.getId.getText()) );
                 while (rs.next()){
-                    pmid.mini_middel_panel.leftcorner_panel.fname.setText(rs.getString("fname") + rs.getString("lname"));
+                    pmid.mini_middel_panel.leftcorner_panel.fname.setText(rs.getString("fname") + " " + rs.getString("lname"));
                     pmid.mini_middel_panel.leftcorner_panel.fdob.setText( rs.getDate("date_of_birth").toString());
                     pmid.mini_middel_panel.leftcorner_panel.fgender.setText(rs.getString("gender"));
                     pmid.mini_middel_panel.leftcorner_panel.fhometown.setText(rs.getString("home_town"));
@@ -70,6 +69,13 @@ public class Student_view_panel extends rounded_panel implements ActionListener 
                     pmid.mini_middel_panel.leftcorner_panel.femail.setText(rs.getString("email"));
                     pmid.mini_middel_panel.leftcorner_panel.fphonenumber.setText(rs.getString("phone_number"));
 
+                    pmid.mini_middel_panel.rightcorner_panel.fstudent_id.setText(rs.getString("msv"));
+                    pmid.mini_middel_panel.rightcorner_panel.fdepartment.setText(rs.getString("department"));
+                    pmid.mini_middel_panel.rightcorner_panel.fmajor.setText(rs.getString("major"));
+                    pmid.mini_middel_panel.rightcorner_panel.fschool_year.setText(rs.getString("school year"));
+                    pmid.mini_middel_panel.rightcorner_panel.fgpa.setText(rs.getString("GPA"));
+                    pmid.mini_middel_panel.rightcorner_panel.fusername.setText(rs.getString("username"));
+                    pmid.mini_middel_panel.rightcorner_panel.fpassword.setText(rs.getString("password"));
 
 //                    System.out.println("Id: " + rs.getInt("msv"));
 //                    System.out.println("Name: " + rs.getString("lname"));

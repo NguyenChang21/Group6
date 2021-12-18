@@ -7,6 +7,26 @@ import java.sql.*;
 
 public class ExecuteSQL {
 
+    public ResultSet searchAdmin(Connection conn) throws SQLException {
+        String sql = "SELECT `username`, `password` FROM `admin` WHERE 1";
+        Statement stm = conn.createStatement();
+        ResultSet rs = stm.executeQuery(sql);
+        return rs;
+    }
+
+    public ResultSet searchStudentlogin(Connection conn, String username) throws SQLException {
+        String sql = "SELECT `password` FROM `student` WHERE username = '" + username +"'";
+        Statement stm = conn.createStatement();
+        ResultSet rs = stm.executeQuery(sql);
+        return rs;
+    }
+
+    public ResultSet searchTeacherlogin(Connection conn, String username) throws SQLException {
+        String sql = "SELECT `password` FROM `teacher` WHERE username = '" + username +"'";
+        Statement stm = conn.createStatement();
+        ResultSet rs = stm.executeQuery(sql);
+        return rs;
+    }
     public boolean insertStudent(Student student, Connection conn) {
         String sql = "INSERT INTO `student`( `fname`, `lname`, `gender`, `date_of_birth`, `email`, `school year`, " +
                 "`major`, `msv`, `department`, `address`, `phone_number`, `username`, `password`, `GPA`, `ethnic`, `CMND`, " +

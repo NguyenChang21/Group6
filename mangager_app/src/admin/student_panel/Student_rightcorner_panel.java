@@ -39,8 +39,10 @@ public class Student_rightcorner_panel extends rounded_panel {
         fstudent_id.setFont(new Font(null, Font.BOLD, 18));
         fstudent_id.setPreferredSize(new Dimension(150, 40));
         fstudent_id.setAlignmentY(Component.BOTTOM_ALIGNMENT);
-        fstudent_id.setHorizontalAlignment(JTextField.CENTER);
+        fstudent_id.setHorizontalAlignment(JTextField.LEFT);
         fstudent_id.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+        fstudent_id.setEditable(false);
+        fstudent_id.setOpaque(false);
 
         JPanel p1 = new JPanel();
         p1.setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -59,8 +61,10 @@ public class Student_rightcorner_panel extends rounded_panel {
         fdepartment.setFont(new Font(null, Font.BOLD, 18));
         fdepartment.setPreferredSize(new Dimension(150, 40));
         fdepartment.setAlignmentY(Component.BOTTOM_ALIGNMENT);
-        fdepartment.setHorizontalAlignment(JTextField.CENTER);
+        fdepartment.setHorizontalAlignment(JTextField.LEFT);
         fdepartment.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+        fdepartment.setEditable(false);
+        fdepartment.setOpaque(false);
 
         JPanel p2 = new JPanel();
         p2.setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -79,8 +83,10 @@ public class Student_rightcorner_panel extends rounded_panel {
         fmajor.setFont(new Font(null, Font.BOLD, 18));
         fmajor.setPreferredSize(new Dimension(150, 40));
         fmajor.setAlignmentY(Component.BOTTOM_ALIGNMENT);
-        fmajor.setHorizontalAlignment(JTextField.CENTER);
+        fmajor.setHorizontalAlignment(JTextField.LEFT);
         fmajor.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+        fmajor.setEditable(false);
+        fmajor.setOpaque(false);
 
         JPanel p3 = new JPanel();
         p3.setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -99,8 +105,10 @@ public class Student_rightcorner_panel extends rounded_panel {
         fschool_year.setFont(new Font(null, Font.BOLD, 18));
         fschool_year.setPreferredSize(new Dimension(150, 40));
         fschool_year.setAlignmentY(Component.BOTTOM_ALIGNMENT);
-        fschool_year.setHorizontalAlignment(JTextField.CENTER);
+        fschool_year.setHorizontalAlignment(JTextField.LEFT);
         fschool_year.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+        fschool_year.setEditable(false);
+        fschool_year.setOpaque(false);
 
         JPanel p4 = new JPanel();
         p4.setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -119,8 +127,10 @@ public class Student_rightcorner_panel extends rounded_panel {
         fgpa.setFont(new Font(null, Font.BOLD, 18));
         fgpa.setPreferredSize(new Dimension(150, 40));
         fgpa.setAlignmentY(Component.BOTTOM_ALIGNMENT);
-        fgpa.setHorizontalAlignment(JTextField.CENTER);
+        fgpa.setHorizontalAlignment(JTextField.LEFT);
         fgpa.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+        fgpa.setEditable(false);
+        fgpa.setOpaque(false);
 
         JPanel p5 = new JPanel();
         p5.setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -139,8 +149,10 @@ public class Student_rightcorner_panel extends rounded_panel {
         fusername.setFont(new Font(null, Font.BOLD, 18));
         fusername.setPreferredSize(new Dimension(150, 40));
         fusername.setAlignmentY(Component.BOTTOM_ALIGNMENT);
-        fusername.setHorizontalAlignment(JTextField.CENTER);
+        fusername.setHorizontalAlignment(JTextField.LEFT);
         fusername.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+        fusername.setEditable(false);
+        fusername.setOpaque(false);
 
         JPanel p6 = new JPanel();
         p6.setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -159,8 +171,10 @@ public class Student_rightcorner_panel extends rounded_panel {
         fpassword.setFont(new Font(null, Font.BOLD, 18));
         fpassword.setPreferredSize(new Dimension(150, 40));
         fpassword.setAlignmentY(Component.BOTTOM_ALIGNMENT);
-        fpassword.setHorizontalAlignment(JTextField.CENTER);
+        fpassword.setHorizontalAlignment(JTextField.LEFT);
         fpassword.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+        fpassword.setEditable(false);
+        fpassword.setOpaque(false);
 
         JPanel p7 = new JPanel();
         p7.setLayout(new FlowLayout(FlowLayout.LEFT));

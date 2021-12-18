@@ -12,6 +12,7 @@ import java.text.SimpleDateFormat;
 
 public class main {
     public static Connection conn;
+    public static ExecuteSQL exe = new ExecuteSQL();
     public static void main(String[] args) throws ParseException {
         try {
             conn = ConnectionUtils.openConnection();

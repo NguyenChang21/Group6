@@ -59,7 +59,7 @@ public class admin_panel extends mainPanel implements ActionListener, MouseListe
         init();
     }
     public void init(){
-
+        setMinimumSize(new Dimension(1000, 650));
         gbl = new GridBagLayout();
         gbc = new GridBagConstraints();
         mid_panel.buttoncenter_panel.setLayout(gbl);
