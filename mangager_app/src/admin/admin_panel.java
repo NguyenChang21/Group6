@@ -6,6 +6,7 @@ import admin.info_panel.Info_panel;
 import admin.menu_panel.Menu_panel;
 import admin.schoolyear_panel.Schoolyear_panel;
 import admin.student_panel.Student_panel;
+import admin.student_panel.Student_view_panel;
 import admin.teacher_panel.Teacher_panel;
 import mainScreen.mainPanel;
 import prototype.rounded_button;
@@ -32,7 +33,7 @@ public class admin_panel extends mainPanel implements ActionListener, MouseListe
     GridBagConstraints gbc;
 
     Menu_panel menu_panel;
-    Student_panel student_panel;
+    Student_view_panel student_panel;
     Teacher_panel teacher_panel;
     Class_panel class_panel;
     Department_panel department_panel;
@@ -93,7 +94,7 @@ public class admin_panel extends mainPanel implements ActionListener, MouseListe
         mid_panel.view_panel.setLayout(cl);
 
         menu_panel = new Menu_panel(70, new Color(195, 175, 145));
-        student_panel = new Student_panel(70, new Color(195, 175, 145));
+        student_panel = new Student_view_panel(70, new Color(195, 175, 145));
         teacher_panel = new Teacher_panel(70, new Color(195, 175, 145));
         class_panel = new Class_panel(70, new Color(195, 175, 145));
         department_panel = new Department_panel(70, new Color(195, 175, 145));

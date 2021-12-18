@@ -32,7 +32,8 @@ public class middle_panel extends JPanel {
         p3.setOpaque(false);
         add(p3, gbc);
 
-        gbc.weightx = 1;
+//        gbc.fill = GridBagConstraints.VERTICAL;
+        gbc.weightx = 0.2;
         gbc.gridx = 3;
         view_panel = new rounded_panel(70, Color.GRAY);
         view_panel.setOpaque(false);

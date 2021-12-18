@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Student_view_middlepanel extends JPanel {
-
+    public Student_view_mini_middel_panel mini_middel_panel;
     public Student_view_middlepanel() {
 
         GridBagLayout gbl = new GridBagLayout();
@@ -22,8 +22,8 @@ public class Student_view_middlepanel extends JPanel {
         JPanel p3 = new JPanel();
         p3.setOpaque(false);
 
-        JPanel p4 = new Student_view_mini_middel_panel();
-        p4.setOpaque(false);
+        mini_middel_panel = new Student_view_mini_middel_panel();
+        mini_middel_panel.setOpaque(false);
 
         JPanel p5 = new JPanel();
         p5.setOpaque(false);
@@ -56,7 +56,7 @@ public class Student_view_middlepanel extends JPanel {
         gbc.weighty = 1;
         gbc.gridx= 1;
         gbc.gridy = 1;
-        add(p4,gbc);
+        add(mini_middel_panel,gbc);
 
         gbc.weightx = 1;
         gbc.weighty = 0.01;

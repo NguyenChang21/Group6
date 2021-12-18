@@ -9,12 +9,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Student_view_toppanel extends JPanel implements ActionListener {
-    rounded_button find;
+    public rounded_button find;
+    public textfield_type getId;
     public Student_view_toppanel() {
         setOpaque(false);
+
         GridBagLayout gbl = new GridBagLayout();
         GridBagConstraints gbc = new GridBagConstraints();
-        setLayout(gbl);
+        setLayout(new FlowLayout(FlowLayout.LEFT, 0, 20));
         gbc.weightx = 1;
         gbc.weighty = 1;
         gbc.fill = GridBagConstraints.BOTH;
@@ -23,16 +25,16 @@ public class Student_view_toppanel extends JPanel implements ActionListener {
 //        p1.setBackground(Color.cyan);
 
         JLabel addId = new JLabel();
-        addId.setText("Nhập mã sinh viên:");
-        addId.setFont(new Font(null, Font.ITALIC, 35));
+        addId.setText("   Nhập mã sinh viên:  ");
+        addId.setFont(new Font(null, Font.ITALIC, 24));
         gbc.fill = GridBagConstraints.NONE;
 //
 //        JPanel p2 = new JPanel();
 //        p2.setBackground(Color.cyan);
 
-        textfield_type getId = new textfield_type();
+        getId = new textfield_type();
         getId.setFont(new Font(null, Font.ITALIC, 20));
-        getId.setPreferredSize(new Dimension(600, 60));
+        getId.setPreferredSize(new Dimension(320, 50));
         getId.setAlignmentY(Component.BOTTOM_ALIGNMENT);
         getId.setHorizontalAlignment(JTextField.CENTER);
         add(getId);
@@ -41,67 +43,20 @@ public class Student_view_toppanel extends JPanel implements ActionListener {
 
         find = new rounded_button("Tìm kiếm",
                 new Color(245, 220, 100), new Color(220, 159, 56), "find");
-        find.setPreferredSize(new Dimension(150, 55));
+        find.setPreferredSize(new Dimension(140, 50));
         find.setFont(new Font(null, Font.BOLD, 20));
         find.addActionListener(this);
 
-//        JPanel p4 = new JPanel();
-//        p4.setBackground(Color.cyan);
-//
-//        JPanel p5 = new JPanel();
-//        p5.setBackground(Color.cyan);
-//
-//        JPanel p6 = new JPanel();
-//        p6.setBackground(Color.cyan);
+        JPanel p4 = new JPanel();
+        p4.setOpaque(false);
 
-        JPanel p7 = new JPanel();
-        p7.setOpaque(false);
-        p7.add(addId);
 
-        JPanel p8 = new JPanel();
-        p8.setOpaque(false);
-        p8.add(getId);
+        add(addId);
 
-        JPanel p9 = new JPanel();
-        p9.setOpaque(false);
-        p9.add(find);
+        add(getId);
+        add(p4);
 
-//        gbc.gridy = 0;
-//        gbc.gridx = 0;
-//        add(p1,gbc);
-
-        gbc.weighty = 0.7;
-        gbc.gridy = 0;
-        gbc.gridx = 1;
-        add(p7,gbc);
-
-//        gbc.gridy = 0;
-//        gbc.gridx = 2;
-//        add(p2,gbc);
-        gbc.weighty = 1;
-        gbc.gridy = 0;
-        gbc.gridx = 3;
-        add(p8,gbc);
-
-//        gbc.gridy = 0;
-//        gbc.gridx = 4;
-//        add(p3,gbc);
-
-        gbc.gridy = 0;
-        gbc.gridx = 5;
-        add(p9,gbc);
-
-//        gbc.gridy = 0;
-//        gbc.gridx = 0;
-//        add(p4,gbc);
-//
-//        gbc.gridy = 1;
-//        gbc.gridx = 0;
-//        add(p5,gbc);
-//
-//        gbc.gridy = 2;
-//        gbc.gridx = 0;
-//        add(p6,gbc);
+        add(find);
 
     }
 

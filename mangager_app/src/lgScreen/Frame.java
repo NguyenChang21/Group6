@@ -1,5 +1,6 @@
 package lgScreen;
 
+import admin.admin_panel;
 import admin.student_panel.Student_view_panel;
 
 import javax.swing.*;
@@ -8,7 +9,7 @@ public class Frame extends JFrame {
     public Frame(){
         setMinimumSize(new Dimension(1000, 640));
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        add(new Student_view_panel(40, Color.WHITE));
+        add(new admin_panel());
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
