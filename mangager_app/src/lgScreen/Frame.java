@@ -1,6 +1,7 @@
 package lgScreen;
 
 import admin.admin_panel;
+import admin.student_panel.Student_edit_panel;
 import student.student_panel;
 import teacher.teacher_panel;
 
@@ -14,7 +15,9 @@ public class Frame extends JFrame {
     static teacher_panel teacherPanel;
     static CardLayout cl = new CardLayout();
     public Frame(){
-        setMinimumSize(new Dimension(1000, 640));
+
+        setExtendedState(getExtendedState() | JFrame.MAXIMIZED_BOTH);
+//        setMinimumSize(new Dimension(1100, 730));
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         constpanel = new JPanel();
@@ -33,9 +36,11 @@ public class Frame extends JFrame {
         constpanel.add(teacherPanel, "teacher");
 
         cl.show(constpanel, "login");
-        add(constpanel);
+        add(new admin_panel());
+        getContentPane().setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
         pack();
         setLocationRelativeTo(null);
+
         setVisible(true);
     }
 }

@@ -5,6 +5,7 @@ import admin.department_panel.Department_panel;
 import admin.info_panel.Info_panel;
 import admin.menu_panel.Menu_panel;
 import admin.schoolyear_panel.Schoolyear_panel;
+import admin.student_panel.Student_edit_panel;
 import admin.student_panel.Student_panel;
 import admin.student_panel.Student_view_panel;
 import admin.teacher_panel.Teacher_panel;
@@ -33,7 +34,8 @@ public class admin_panel extends mainPanel implements ActionListener, MouseListe
     GridBagConstraints gbc;
 
     Menu_panel menu_panel;
-    Student_view_panel student_panel;
+    Student_view_panel student_view_panel;
+    Student_edit_panel student_edit_panel;
     Teacher_panel teacher_panel;
     Class_panel class_panel;
     Department_panel department_panel;
@@ -60,6 +62,7 @@ public class admin_panel extends mainPanel implements ActionListener, MouseListe
     }
     public void init(){
         setMinimumSize(new Dimension(1000, 650));
+
         gbl = new GridBagLayout();
         gbc = new GridBagConstraints();
         mid_panel.buttoncenter_panel.setLayout(gbl);
@@ -94,7 +97,8 @@ public class admin_panel extends mainPanel implements ActionListener, MouseListe
         mid_panel.view_panel.setLayout(cl);
 
         menu_panel = new Menu_panel(70, new Color(195, 175, 145));
-        student_panel = new Student_view_panel(70, new Color(195, 175, 145));
+        student_view_panel = new Student_view_panel(70, new Color(195, 175, 145));
+        student_edit_panel = new Student_edit_panel(70, new Color(195, 175, 145));
         teacher_panel = new Teacher_panel(70, new Color(195, 175, 145));
         class_panel = new Class_panel(70, new Color(195, 175, 145));
         department_panel = new Department_panel(70, new Color(195, 175, 145));
@@ -102,7 +106,10 @@ public class admin_panel extends mainPanel implements ActionListener, MouseListe
         info_panel = new Info_panel(70, Color.YELLOW);
 
         mid_panel.view_panel.add(menu_panel, menu_button.getName());
-        mid_panel.view_panel.add(student_panel, student_button.getName());
+
+        mid_panel.view_panel.add(student_view_panel, student_button.getName() + "view");
+        mid_panel.view_panel.add(student_edit_panel, student_button.getName() + "edit");
+
         mid_panel.view_panel.add(teacher_panel, teacher_button.getName());
         mid_panel.view_panel.add(class_panel, class_button.getName());
         mid_panel.view_panel.add(department_panel, department_button.getName());
@@ -142,14 +149,14 @@ public class admin_panel extends mainPanel implements ActionListener, MouseListe
         if (e.getSource() == op.view_button){
             for (rounded_button item:rbt) {
                 if(item.getClicked() == 1){
-                    cl.show(mid_panel.view_panel, item.getName());
+                    cl.show(mid_panel.view_panel, item.getName() + "view");
                 }
             }
         }
         if (e.getSource() == op.edit_button){
             for (rounded_button item:rbt) {
                 if(item.getClicked() == 1){
-                    cl.show(mid_panel.view_panel, item.getName());
+                    cl.show(mid_panel.view_panel, item.getName() + "edit");
                 }
             }
         }

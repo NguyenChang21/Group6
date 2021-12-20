@@ -40,7 +40,7 @@ public class ExecuteSQL {
             pstm.setString(3, student.getGender());
             pstm.setDate(4, new Date(student.getDate_of_birth().getTime()));
             pstm.setString(5, student.getEmail());
-            pstm.setInt(6, student.getSchool_year());
+            pstm.setString(6, student.getSchool_year());
             pstm.setString(7, student.getMajor());
             pstm.setInt(8, student.getStudent_id()  );
             pstm.setString(9, student.getDepartment());
@@ -122,23 +122,25 @@ public class ExecuteSQL {
         return rs;
     }
 
-    public boolean updateStudent(Student student, Connection conn) {
+    public boolean updateStudent(Student student, Connection conn, int msv) {
         String sql = "UPDATE `student` SET `fname`=?,`lname`=?," +
                 "`gender`=?,`date_of_birth`=?,`email`=?," +
                 "`school year`=?,`major`=?,`msv`=?,`department`=?," +
                 "`address`=?,`phone_number`=?,`username`=?,`password`=?," +
                 "`GPA`=?,`ethnic`=?,`CMND`=?,`home_town`=?," +
                 "`status`=?,`religion`=?,`class_attending`=?," +
-                "`class_completed`=?,`note`=? WHERE msv = " + student.getStudent_id();
+                "`class_completed`=?,`note`=? WHERE msv = " + msv;
 
         try {
             PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setString(1, student.getFirstname());
             pstm.setString(2, student.getLastname());
             pstm.setString(3, student.getGender());
-            pstm.setDate(4, new Date(student.getDate_of_birth().getTime()));
+            java.sql.Date date = new java.sql.Date(student.getDate_of_birth().getTime());
+
+            pstm.setDate(4, date);
             pstm.setString(5, student.getEmail());
-            pstm.setInt(6, student.getSchool_year());
+            pstm.setString(6, student.getSchool_year());
             pstm.setString(7, student.getMajor());
             pstm.setInt(8, student.getStudent_id()  );
             pstm.setString(9, student.getDepartment());

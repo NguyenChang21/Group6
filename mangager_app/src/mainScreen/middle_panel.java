@@ -20,7 +20,7 @@ public class middle_panel extends JPanel {
         p1.setOpaque(false);
         add(p1, gbc);
 
-        gbc.weightx = 0.13f;
+        gbc.weightx = 0.4f;
         gbc.gridx = 1;
         buttoncenter_panel = new JPanel();
         buttoncenter_panel.setOpaque(false);
@@ -33,7 +33,7 @@ public class middle_panel extends JPanel {
         add(p3, gbc);
 
 //        gbc.fill = GridBagConstraints.VERTICAL;
-        gbc.weightx = 0.2;
+        gbc.weightx = 0.5;
         gbc.gridx = 3;
         view_panel = new rounded_panel(70, Color.GRAY);
         view_panel.setOpaque(false);

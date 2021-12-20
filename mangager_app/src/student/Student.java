@@ -11,7 +11,7 @@ public class Student {
     private String id_number;
     private String address;
     private String religion;
-    private int school_year;
+    private String school_year;
     private String major;
     private int student_id;
     private String department;
@@ -106,11 +106,11 @@ public class Student {
         this.religion = religion;
     }
 
-    public int getSchool_year() {
+    public String getSchool_year() {
         return school_year;
     }
 
-    public void setSchool_year(int school_year) {
+    public void setSchool_year(String school_year) {
         this.school_year = school_year;
     }
 

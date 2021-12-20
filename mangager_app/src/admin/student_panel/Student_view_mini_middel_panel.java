@@ -30,11 +30,11 @@ public class Student_view_mini_middel_panel extends JPanel {
         JPanel p4 = new JPanel();
         p4.setOpaque(false);
 
-        rounded_button p5 = new rounded_button("Tạo thêm sinh viên",
+        rounded_button insertst_button = new rounded_button("Tạo thêm sinh viên",
                 new Color(218, 150, 237),
                 new Color(190, 146, 248));
-        p5.setFont(new Font(null, Font.BOLD, 25));
-        p5.setOpaque(false);
+        insertst_button.setFont(new Font(null, Font.BOLD, 25));
+        insertst_button.setOpaque(false);
 
 
         gbc.weighty = 0.01;
@@ -65,7 +65,7 @@ public class Student_view_mini_middel_panel extends JPanel {
         gbc.weighty=0.3;
         gbc.gridx = 0;
         gbc.gridy = 2;
-        add(p5,gbc);
+        add(insertst_button,gbc);
 
 
 

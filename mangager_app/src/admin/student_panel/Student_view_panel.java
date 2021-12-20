@@ -37,7 +37,7 @@ public class Student_view_panel extends rounded_panel implements ActionListener 
         JPanel p3 = new JPanel();
         p3.setOpaque(false);
 
-        gbc.weighty = 0.12;
+        gbc.weighty = 0.1;
         gbc.gridy = 0;
         gbc.gridx = 0;
         add(ptop,gbc);
