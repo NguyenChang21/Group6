@@ -1,14 +1,14 @@
-package admin.student_panel;
+package student;
 
-import prototype.rounded_panel;
 import prototype.rounded_button;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class Student_view_mini_middel_panel extends JPanel {
     public Student_leftcorner_panel leftcorner_panel;
     public Student_rightcorner_panel rightcorner_panel;
-    public rounded_button insert_button;
+    public rounded_button update_button;
     public Student_view_mini_middel_panel() {
         setOpaque(false);
         GridBagLayout gbl = new GridBagLayout();
@@ -32,12 +32,12 @@ public class Student_view_mini_middel_panel extends JPanel {
         p4.setOpaque(false);
 
 
-        insert_button = new rounded_button("Tạo thêm sinh viên",
+        update_button = new rounded_button("Cập nhật thông tin sinh viên",
                 new Color(218, 150, 237),
                 new Color(190, 146, 248));
-        insert_button.setFont(new Font(null, Font.BOLD, 25));
-        insert_button.setPreferredSize(new Dimension(270, 150));
-        insert_button.setOpaque(false);
+        update_button.setFont(new Font(null, Font.BOLD, 25));
+        update_button.setPreferredSize(new Dimension(270, 150));
+        update_button.setOpaque(false);
 
 
 
@@ -69,7 +69,7 @@ public class Student_view_mini_middel_panel extends JPanel {
         gbc.weighty=0.3;
         gbc.gridx = 0;
         gbc.gridy = 2;
-        add(insert_button,gbc);
+        add(update_button,gbc);
 
 
 

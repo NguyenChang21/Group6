@@ -16,6 +16,11 @@ public class student_panel extends mainPanel implements ActionListener {
 
     Color c1 = new Color(234, 162, 133);
     Color c2 = new Color(240, 134, 84);
+
+    CardLayout cl = new CardLayout();
+    Student_view_panel student_view_panel;
+    Menu_panel menu_panel;
+    Class_panel class_panel;
     public student_panel(){
         GridBagLayout gbl = new GridBagLayout();
         GridBagConstraints gbc = new GridBagConstraints();
@@ -57,10 +62,29 @@ public class student_panel extends mainPanel implements ActionListener {
         gbc.weighty = 1;
         gbc.gridy = 7;
         mid_panel.buttoncenter_panel.add(p1, gbc);
+
+        mid_panel.view_panel.setLayout(cl);
+        menu_panel = new Menu_panel(70, new Color(195, 175, 145));
+        class_panel = new Class_panel(70, new Color(195, 175, 145));
+        student_view_panel = new Student_view_panel(70, new Color(195, 175, 145));
+        mid_panel.view_panel.add(menu_panel, "menu_panel");
+        mid_panel.view_panel.add(class_panel, "class_panel");
+        mid_panel.view_panel.add(student_view_panel, "info_panel");
+
+        cl.show(mid_panel.view_panel, "view_panel");
+
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        if (e.getSource() == menu_button){
+            cl.show(mid_panel.view_panel, "menu_panel");
+        }
+        if (e.getSource() == class_button){
+            cl.show(mid_panel.view_panel, "class_panel");
+        }
+        if (e.getSource() == info_button){
+            cl.show(mid_panel.view_panel, "info_panel");
+        }
     }
 }

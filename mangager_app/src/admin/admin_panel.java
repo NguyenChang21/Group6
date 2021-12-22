@@ -6,6 +6,7 @@ import admin.info_panel.Info_panel;
 import admin.menu_panel.Menu_panel;
 import admin.schoolyear_panel.Schoolyear_panel;
 import admin.student_panel.Student_edit_panel;
+import admin.student_panel.Student_insert_panel;
 import admin.student_panel.Student_panel;
 import admin.student_panel.Student_view_panel;
 import admin.teacher_panel.Teacher_panel;
@@ -28,7 +29,7 @@ public class admin_panel extends mainPanel implements ActionListener, MouseListe
 
     private int button_posy = 0;
     private int index;
-    CardLayout cl;
+    static CardLayout cl;
 
     GridBagLayout gbl;
     GridBagConstraints gbc;
@@ -36,6 +37,7 @@ public class admin_panel extends mainPanel implements ActionListener, MouseListe
     Menu_panel menu_panel;
     Student_view_panel student_view_panel;
     Student_edit_panel student_edit_panel;
+    Student_insert_panel student_insert_panel;
     Teacher_panel teacher_panel;
     Class_panel class_panel;
     Department_panel department_panel;
@@ -99,6 +101,7 @@ public class admin_panel extends mainPanel implements ActionListener, MouseListe
         menu_panel = new Menu_panel(70, new Color(195, 175, 145));
         student_view_panel = new Student_view_panel(70, new Color(195, 175, 145));
         student_edit_panel = new Student_edit_panel(70, new Color(195, 175, 145));
+        student_insert_panel = new Student_insert_panel(70, new Color(195, 175, 145));
         teacher_panel = new Teacher_panel(70, new Color(195, 175, 145));
         class_panel = new Class_panel(70, new Color(195, 175, 145));
         department_panel = new Department_panel(70, new Color(195, 175, 145));
@@ -109,13 +112,15 @@ public class admin_panel extends mainPanel implements ActionListener, MouseListe
 
         mid_panel.view_panel.add(student_view_panel, student_button.getName() + "view");
         mid_panel.view_panel.add(student_edit_panel, student_button.getName() + "edit");
-
+        mid_panel.view_panel.add(student_insert_panel, "insert_student");
         mid_panel.view_panel.add(teacher_panel, teacher_button.getName());
         mid_panel.view_panel.add(class_panel, class_button.getName());
         mid_panel.view_panel.add(department_panel, department_button.getName());
         mid_panel.view_panel.add(schoolyear_panel, schoolyear_button.getName());
         mid_panel.view_panel.add(info_panel, info_button.getName());
         cl.show(mid_panel.view_panel,menu_button.getName());
+
+        student_view_panel.pmid.mini_middel_panel.insert_button.addActionListener(this);
     }
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -125,6 +130,9 @@ public class admin_panel extends mainPanel implements ActionListener, MouseListe
         }
         if (e.getSource() == student_button){
             removeTheother(mid_panel.buttoncenter_panel, e);
+        }
+        if (e.getSource() == student_view_panel.pmid.mini_middel_panel.insert_button){
+            cl.show(mid_panel.view_panel, "insert_student");
         }
         if (e.getSource() == teacher_button){
             removeTheother(mid_panel.buttoncenter_panel, e);

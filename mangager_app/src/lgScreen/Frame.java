@@ -35,8 +35,8 @@ public class Frame extends JFrame {
         teacherPanel = new teacher_panel();
         constpanel.add(teacherPanel, "teacher");
 
-        cl.show(constpanel, "login");
-        add(new admin_panel());
+        cl.show(constpanel, "student");
+        add(constpanel);
         getContentPane().setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
         pack();
         setLocationRelativeTo(null);

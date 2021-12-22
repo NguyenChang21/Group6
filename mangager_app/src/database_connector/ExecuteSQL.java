@@ -201,8 +201,8 @@ public class ExecuteSQL {
         return false;
     }
 
-    public boolean deleteStudent(Student student, Connection conn){
-        String sql = "DELETE FROM `student` WHERE msv = " + student.getStudent_id();
+    public boolean deleteStudent(int id, Connection conn){
+        String sql = "DELETE FROM `student` WHERE msv = " + id;
         try {
             Statement stm = conn.createStatement();
             stm.executeUpdate(sql);

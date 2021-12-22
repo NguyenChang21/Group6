@@ -187,7 +187,7 @@ public class Student_edit_rightcorner_panel extends rounded_panel {
 
         fusername = new JTextField();
         fusername.setFont(new Font(null, Font.BOLD, 18));
-        fusername.setPreferredSize(new Dimension(150, 40));
+        fusername.setPreferredSize(new Dimension(250, 40));
         fusername.setAlignmentY(Component.BOTTOM_ALIGNMENT);
         fusername.setHorizontalAlignment(JTextField.LEFT);
         fusername.setBorder(BorderFactory.createEmptyBorder());
@@ -196,7 +196,7 @@ public class Student_edit_rightcorner_panel extends rounded_panel {
         JPanel p8 = new JPanel();
         p8.setLayout(new FlowLayout(FlowLayout.LEFT));
         p8.setOpaque(false);
-        p8.setPreferredSize(new Dimension(200, 50));
+        p8.setPreferredSize(new Dimension(250, 50));
         p8.add(username);
         p8.add(fusername);
         gbc.gridy = 8;
@@ -208,7 +208,7 @@ public class Student_edit_rightcorner_panel extends rounded_panel {
 
         fpassword = new JTextField();
         fpassword.setFont(new Font(null, Font.BOLD, 18));
-        fpassword.setPreferredSize(new Dimension(150, 40));
+        fpassword.setPreferredSize(new Dimension(250, 40));
         fpassword.setAlignmentY(Component.BOTTOM_ALIGNMENT);
         fpassword.setHorizontalAlignment(JTextField.LEFT);
         fpassword.setBorder(BorderFactory.createEmptyBorder());
@@ -217,7 +217,7 @@ public class Student_edit_rightcorner_panel extends rounded_panel {
         JPanel p9 = new JPanel();
         p9.setLayout(new FlowLayout(FlowLayout.LEFT));
         p9.setOpaque(false);
-        p9.setPreferredSize(new Dimension(200, 50));
+        p9.setPreferredSize(new Dimension(250, 50));
         p9.add(password);
         p9.add(fpassword);
         gbc.gridy = 9;

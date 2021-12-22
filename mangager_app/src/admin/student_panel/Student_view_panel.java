@@ -1,7 +1,6 @@
 package admin.student_panel;
 import lgScreen.main;
 import prototype.rounded_panel;
-import database_connector.ExecuteSQL;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -9,10 +8,9 @@ import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import database_connector.ExecuteSQL;
 public class Student_view_panel extends rounded_panel implements ActionListener {
-    Student_view_toppanel ptop;
-    Student_view_middlepanel pmid;
+    public Student_view_toppanel ptop;
+    public Student_view_middlepanel pmid;
 
     public Student_view_panel(int radius) {
         super(radius);
@@ -53,6 +51,7 @@ public class Student_view_panel extends rounded_panel implements ActionListener 
         add(p3,gbc);
 
         ptop.find.addActionListener(this);
+        ptop.delete.addActionListener(this);
     }
 
     @Override
@@ -85,6 +84,30 @@ public class Student_view_panel extends rounded_panel implements ActionListener 
                 }
             } catch (SQLException ex) {
                 ex.printStackTrace();
+            }
+        }
+        if (e.getSource() == ptop.delete){
+            String alpha = pmid.mini_middel_panel.leftcorner_panel.fname.getText();
+            if (alpha.length() == 0 ){
+                JOptionPane.showMessageDialog(null,
+                        "Hãy chọn ra một sinh viên để xóa!",
+                        "Kết quả",
+                        JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                System.out.println("something");
+                if (main.exe.deleteStudent(Integer.parseInt(pmid.mini_middel_panel.rightcorner_panel.fstudent_id.getText()), main.conn)){
+                    JOptionPane.showMessageDialog(null,
+                            "Đã xóa thành công!",
+                            "Kết quả",
+                            JOptionPane.INFORMATION_MESSAGE);
+
+                } else {
+                    JOptionPane.showMessageDialog(null,
+                            "Đã xóa thất bại!",
+                            "Kết quả",
+                            JOptionPane.INFORMATION_MESSAGE);
+
+                }
             }
         }
     }
