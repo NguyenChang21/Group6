@@ -32,6 +32,4 @@ public class login_zone extends JPanel {
         lg_panel.setAlignmentX(Component.CENTER_ALIGNMENT);
         add(lg_panel);
     }
-
-
 }

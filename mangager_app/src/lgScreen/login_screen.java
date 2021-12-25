@@ -8,7 +8,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class login_screen extends JPanel {
-    login_zone lg;
+    public login_zone lg;
     private BufferedImage background;
 
     {

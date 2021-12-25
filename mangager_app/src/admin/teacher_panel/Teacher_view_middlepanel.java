@@ -1,11 +1,14 @@
-package student;
+package admin.teacher_panel;
+
+import admin.student_panel.Student_view_mini_middel_panel;
+import teacher.Teacher;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class Student_view_middlepanel extends JPanel {
-    public Student_view_mini_middel_panel mini_middel_panel;
-    public Student_view_middlepanel() {
+public class Teacher_view_middlepanel extends JPanel {
+    public Teacher_view_mini_middel_panel mini_middel_panel;
+    public Teacher_view_middlepanel() {
 
         GridBagLayout gbl = new GridBagLayout();
         GridBagConstraints gbc = new GridBagConstraints();
@@ -22,7 +25,7 @@ public class Student_view_middlepanel extends JPanel {
         JPanel p3 = new JPanel();
         p3.setOpaque(false);
 
-        mini_middel_panel = new Student_view_mini_middel_panel();
+        mini_middel_panel = new Teacher_view_mini_middel_panel();
         mini_middel_panel.setOpaque(false);
 
         JPanel p5 = new JPanel();

@@ -1,13 +1,14 @@
-package admin.student_panel;
-import prototype.rounded_panel;
+package admin.teacher_panel;
+import admin.student_panel.Student_edit_leftcorner_panel;
+import admin.student_panel.Student_edit_rightcorner_panel;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class Student_edit_middle_panel extends JPanel {
-    public Student_edit_leftcorner_panel lpanel;
-    public Student_edit_rightcorner_panel rpanel;
-    public Student_edit_middle_panel() {
+public class Teacher_edit_middle_panel extends JPanel {
+    public Teacher_edit_leftcorner_panel lpanel;
+    public Teacher_edit_rightcorner_panel rpanel;
+    public Teacher_edit_middle_panel() {
         setOpaque(false);
         GridBagLayout gbl = new GridBagLayout();
         GridBagConstraints gbc = new GridBagConstraints();
@@ -19,13 +20,13 @@ public class Student_edit_middle_panel extends JPanel {
         JPanel p1 = new JPanel();
         p1.setOpaque(false);
 
-        lpanel = new Student_edit_leftcorner_panel(40,Color.WHITE);
+        lpanel = new Teacher_edit_leftcorner_panel(40,Color.WHITE);
         lpanel.setOpaque(false);
 
         JPanel p3 = new JPanel();
         p3.setOpaque(false);
 
-        rpanel = new Student_edit_rightcorner_panel(40,Color.WHITE);
+        rpanel = new Teacher_edit_rightcorner_panel(40,Color.WHITE);
         rpanel.setOpaque(false);
 
         JPanel p5 = new JPanel();
@@ -36,7 +37,7 @@ public class Student_edit_middle_panel extends JPanel {
         gbc.gridx = 0;
         add(p1,gbc);
 
-        gbc.weightx=0.2;
+        gbc.weightx=0.25;
         gbc.gridy = 0;
         gbc.gridx = 1;
         add(lpanel,gbc);
@@ -46,7 +47,7 @@ public class Student_edit_middle_panel extends JPanel {
         gbc.gridy = 0;
         add(p3,gbc);
 
-        gbc.weightx=0.4;
+        gbc.weightx=0.2;
         gbc.gridx = 3;
         gbc.gridy = 0;
         add(rpanel,gbc);

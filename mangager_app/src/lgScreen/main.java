@@ -11,7 +11,9 @@ import java.text.SimpleDateFormat;
 
 
 public class main {
+    public static Frame frame;
     public static Connection conn;
+    public static ResultSet rs_user;
     public static ExecuteSQL exe = new ExecuteSQL();
     public static void main(String[] args) throws ParseException {
         try {
@@ -20,7 +22,7 @@ public class main {
         } catch (Exception e){
             e.printStackTrace();
         }
-        new Frame();
+        frame = new Frame();
 
     }
     private static void showUserInfo(ResultSet rs) throws SQLException {

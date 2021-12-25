@@ -1,4 +1,4 @@
-package student;
+package student.info_panel;
 
 import prototype.rounded_button;
 import prototype.textfield_type;

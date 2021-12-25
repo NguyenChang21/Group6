@@ -1,15 +1,15 @@
 package lgScreen;
 
 import admin.admin_panel;
-import admin.student_panel.Student_edit_panel;
-import student.student_panel;
+import admin.teacher_panel.Teacher_view_panel;
+import student.info_panel.student_panel;
 import teacher.teacher_panel;
 
 import javax.swing.*;
 import java.awt.*;
 public class Frame extends JFrame {
     static JPanel constpanel;
-    static login_screen loginScreen;
+    public static login_screen loginScreen;
     static admin_panel adminPanel;
     static student_panel studentPanel;
     static teacher_panel teacherPanel;
@@ -35,7 +35,7 @@ public class Frame extends JFrame {
         teacherPanel = new teacher_panel();
         constpanel.add(teacherPanel, "teacher");
 
-        cl.show(constpanel, "student");
+        cl.show(constpanel, "admin");
         add(constpanel);
         getContentPane().setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
         pack();

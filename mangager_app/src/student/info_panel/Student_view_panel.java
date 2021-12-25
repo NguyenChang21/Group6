@@ -1,14 +1,11 @@
-package student;
+package student.info_panel;
 
-import lgScreen.main;
 import prototype.rounded_panel;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 public class Student_view_panel extends rounded_panel implements ActionListener {
     public Student_view_toppanel ptop;

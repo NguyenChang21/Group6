@@ -1,11 +1,17 @@
-package student;
+package student.info_panel;
+import lgScreen.main;
 import mainScreen.mainPanel;
 
 import prototype.rounded_button;
+import student.Class_panel;
+import student.Menu_panel;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.Format;
+import java.text.SimpleDateFormat;
 
 public class student_panel extends mainPanel implements ActionListener {
     private int button_width;
@@ -18,7 +24,7 @@ public class student_panel extends mainPanel implements ActionListener {
     Color c2 = new Color(240, 134, 84);
 
     CardLayout cl = new CardLayout();
-    Student_view_panel student_view_panel;
+    Student_edit_panel student_view_panel;
     Menu_panel menu_panel;
     Class_panel class_panel;
     public student_panel(){
@@ -66,7 +72,7 @@ public class student_panel extends mainPanel implements ActionListener {
         mid_panel.view_panel.setLayout(cl);
         menu_panel = new Menu_panel(70, new Color(195, 175, 145));
         class_panel = new Class_panel(70, new Color(195, 175, 145));
-        student_view_panel = new Student_view_panel(70, new Color(195, 175, 145));
+        student_view_panel = new Student_edit_panel(70, new Color(195, 175, 145));
         mid_panel.view_panel.add(menu_panel, "menu_panel");
         mid_panel.view_panel.add(class_panel, "class_panel");
         mid_panel.view_panel.add(student_view_panel, "info_panel");
@@ -85,6 +91,35 @@ public class student_panel extends mainPanel implements ActionListener {
         }
         if (e.getSource() == info_button){
             cl.show(mid_panel.view_panel, "info_panel");
+            try {
+                while (main.rs_user.next()){
+
+                    student_view_panel.pmid.lpanel.faddress.setText(main.rs_user.getString("address"));
+                    Format formatter = new SimpleDateFormat("dd/MM/yyyy");
+                    student_view_panel.pmid.lpanel.fdob.setText(formatter.format(main.rs_user.getDate("date_of_birth").getTime()));
+                    student_view_panel.pmid.lpanel.femail.setText(main.rs_user.getString("email"));
+                    student_view_panel.pmid.lpanel.fethnic.setText(main.rs_user.getString("ethnic"));
+                    student_view_panel.pmid.lpanel.fgender.setText(main.rs_user.getString("gender"));
+                    student_view_panel.pmid.lpanel.fhometown.setText(main.rs_user.getString("home_town"));
+                    student_view_panel.pmid.lpanel.fname.setText(main.rs_user.getString("fname") + main.rs_user.getString("lname"));
+                    student_view_panel.pmid.lpanel.fphonenumber.setText(main.rs_user.getString("phone_number"));
+                    student_view_panel.pmid.lpanel.freligion.setText(main.rs_user.getString("religion"));
+
+                    student_view_panel.pmid.rpanel.fiD_number.setText(main.rs_user.getString("CMND"));
+                    student_view_panel.pmid.rpanel.fdepartment.setText(main.rs_user.getString("department"));
+                    student_view_panel.pmid.rpanel.fgpa.setText(Float.toString(main.rs_user.getFloat("GPA")));
+                    student_view_panel.pmid.rpanel.fmajor.setText(main.rs_user.getString("major"));
+                    student_view_panel.pmid.rpanel.fpassword.setText(main.rs_user.getString("password"));
+                    student_view_panel.pmid.rpanel.fschool_year.setText(main.rs_user.getString("school year"));
+                    student_view_panel.pmid.rpanel.fstatus.setText(main.rs_user.getString("status"));
+                    student_view_panel.pmid.rpanel.fusername.setText(main.rs_user.getString("username"));
+                    student_view_panel.pmid.rpanel.fstudent_id.setText(Integer.toString(main.rs_user.getInt("msv")));
+                }
+
+            } catch (Exception ex){
+                ex.printStackTrace();
+            }
+
         }
     }
 }

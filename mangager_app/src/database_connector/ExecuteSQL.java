@@ -166,11 +166,11 @@ public class ExecuteSQL {
         return false;
     }
 
-    public boolean updateTeacher(Teacher teacher, Connection conn){
+    public boolean updateTeacher(Teacher teacher, Connection conn, String lname){
         String sql = "UPDATE `teacher` SET `fname`=?,`lname`=?,`gender`=?,`date_of_birth`=?,`email`=?," +
                 "`address`=?,`phone_number`=?,`username`=?,`password`=?,`ethnic`=?,`CMND`=?,`hometown`=?," +
                 "`department`=?,`status`=?,`religion`=?,`qualification`=?," +
-                "`teaching_class`=?,`note`=? WHERE CMND = " + "'" + teacher.getId_number() + "'";
+                "`teaching_class`=?,`note`=? WHERE lname = " + "'" + lname + "'";
         try {
             PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setString(1, teacher.getFirstname());
@@ -213,8 +213,8 @@ public class ExecuteSQL {
         return false;
     }
 
-    public boolean deleteTeacher(Teacher teacher, Connection conn){
-        String sql = "DELETE FROM `teacher` WHERE CMND = " + teacher.getId_number();
+    public boolean deleteTeacher(String name, Connection conn){
+        String sql = "DELETE FROM `teacher` WHERE lname = " + "'" + name + "'";
         try {
             Statement stm = conn.createStatement();
             stm.executeUpdate(sql);

@@ -1,4 +1,4 @@
-package admin.student_panel;
+package student.info_panel;
 
 import prototype.rounded_panel;
 
@@ -124,7 +124,7 @@ public class Student_edit_rightcorner_panel extends rounded_panel {
 
         fmajor = new JTextField();
         fmajor.setFont(new Font(null, Font.BOLD, 18));
-        fmajor.setPreferredSize(new Dimension(250, 40));
+        fmajor.setPreferredSize(new Dimension(200, 40));
         fmajor.setAlignmentY(Component.BOTTOM_ALIGNMENT);
         fmajor.setHorizontalAlignment(JTextField.LEFT);
         fmajor.setBorder(BorderFactory.createEmptyBorder());
@@ -133,7 +133,7 @@ public class Student_edit_rightcorner_panel extends rounded_panel {
         JPanel p5 = new JPanel();
         p5.setLayout(new FlowLayout(FlowLayout.LEFT));
         p5.setOpaque(false);
-        p5.setPreferredSize(new Dimension(250, 50));
+        p5.setPreferredSize(new Dimension(200, 50));
         p5.add(major);
         p5.add(fmajor);
         gbc.gridy = 5;

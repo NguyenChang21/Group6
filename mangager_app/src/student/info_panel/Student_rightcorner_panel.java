@@ -1,4 +1,4 @@
-package student;
+package student.info_panel;
 
 import prototype.logo_panel;
 import prototype.rounded_panel;

@@ -17,6 +17,7 @@ public class login_panel extends rounded_panel implements ActionListener {
     JLabel password_label;
     JLabel forgot_pass;
 
+
     Button_panel button_panel;
     public login_panel(int radius, Color bgColor) {
         super(radius, bgColor);
@@ -127,6 +128,11 @@ public class login_panel extends rounded_panel implements ActionListener {
                     while (rs.next()){
                         if ( pass_field.getText().equals(rs.getString("password"))){
                             Frame.cl.show(Frame.constpanel, "admin");
+                        } else {
+                            JOptionPane.showMessageDialog(null,
+                                    "Bạn đã nhập sai mật khẩu, vui lòng nhập lại!",
+                                    "Sai thông tin người dùng",
+                                    JOptionPane.INFORMATION_MESSAGE);
                         }
                     }
                 } catch (Exception ex) {
@@ -139,7 +145,13 @@ public class login_panel extends rounded_panel implements ActionListener {
                     ResultSet rs = main.exe.searchStudentlogin(main.conn, name_field.getText());
                     while (rs.next()) {
                         if (pass_field.getText().equals(rs.getString("password"))) {
+                            main.rs_user = main.exe.searchStudent(main.conn, Integer.parseInt(name_field.getText()));
                             Frame.cl.show(Frame.constpanel, "student");
+                        } else {
+                            JOptionPane.showMessageDialog(null,
+                                    "Bạn đã nhập sai mật khẩu, vui lòng nhập lại!",
+                                    "Sai thông tin người dùng",
+                                    JOptionPane.INFORMATION_MESSAGE);
                         }
                     }
                 } catch (Exception ex) {
@@ -152,6 +164,12 @@ public class login_panel extends rounded_panel implements ActionListener {
                     while (rs.next()) {
                         if (pass_field.getText().equals(rs.getString("password"))) {
                             Frame.cl.show(Frame.constpanel, "teacher");
+                        }
+                        else {
+                            JOptionPane.showMessageDialog(null,
+                                    "Bạn đã nhập sai mật khẩu, vui lòng nhập lại!",
+                                    "Sai thông tin người dùng",
+                                    JOptionPane.INFORMATION_MESSAGE);
                         }
                     }
                 } catch (Exception ex) {

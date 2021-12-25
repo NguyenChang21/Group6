@@ -1,5 +1,4 @@
-package admin.student_panel;
-import prototype.rounded_panel;
+package student.info_panel;
 
 import javax.swing.*;
 import java.awt.*;
