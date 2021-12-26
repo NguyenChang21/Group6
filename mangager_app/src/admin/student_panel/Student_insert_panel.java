@@ -1,4 +1,5 @@
 package admin.student_panel;
+import admin.admin_panel;
 import lgScreen.main;
 import prototype.rounded_panel;
 import student.Student;
@@ -173,6 +174,7 @@ public class Student_insert_panel extends rounded_panel implements ActionListene
                                 "Đã thêm thành công",
                                 "Kết quả",
                                 JOptionPane.INFORMATION_MESSAGE);
+                        admin_panel.schoolyear_panel.pmid.update();
                     } else {
                         JOptionPane.showMessageDialog(null,
                                 "Đã thêm thất bại",

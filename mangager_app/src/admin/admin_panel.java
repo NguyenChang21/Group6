@@ -45,8 +45,8 @@ public class admin_panel extends mainPanel implements ActionListener, MouseListe
     Teacher_edit_panel teacher_edit_panel;
     Teacher_insert_panel teacher_insert_panel;
     Class_panel class_panel;
-    Department_panel department_panel;
-    Schoolyear_panel schoolyear_panel;
+    public Department_panel department_panel;
+    public static Schoolyear_panel schoolyear_panel;
     Info_panel info_panel;
 
     rounded_button menu_button = new rounded_button("Trang chủ", c1, c2, "menu");

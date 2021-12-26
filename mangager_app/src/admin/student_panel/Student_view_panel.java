@@ -1,4 +1,6 @@
 package admin.student_panel;
+import admin.admin_panel;
+import admin.schoolyear_panel.Schoolyear_mid_panel;
 import lgScreen.main;
 import prototype.rounded_panel;
 import javax.swing.*;
@@ -100,6 +102,7 @@ public class Student_view_panel extends rounded_panel implements ActionListener 
                             "Đã xóa thành công!",
                             "Kết quả",
                             JOptionPane.INFORMATION_MESSAGE);
+                    admin_panel.schoolyear_panel.pmid.update();
 
                 } else {
                     JOptionPane.showMessageDialog(null,

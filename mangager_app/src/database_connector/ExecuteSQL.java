@@ -232,4 +232,27 @@ public class ExecuteSQL {
 //    public ResultSet filterTeacher(Teacher teacher, Connection conn){
 //
 //    }
+    public ResultSet distinctSchoolyear(Connection conn) throws SQLException {
+        String sql = "SELECT DISTINCT `school year` FROM student";
+        Statement stm = conn.createStatement();
+        ResultSet rs = stm.executeQuery(sql);
+        return rs;
+
+    }
+
+    public ResultSet distinctDepartment_student(Connection conn) throws SQLException {
+        String sql = "SELECT DISTINCT `department` FROM student";
+        Statement stm = conn.createStatement();
+        ResultSet rs = stm.executeQuery(sql);
+        return rs;
+
+    }
+
+    public ResultSet distinctDepartment_teacher(Connection conn) throws SQLException {
+        String sql = "SELECT DISTINCT `department` FROM teacher";
+        Statement stm = conn.createStatement();
+        ResultSet rs = stm.executeQuery(sql);
+        return rs;
+
+    }
 }

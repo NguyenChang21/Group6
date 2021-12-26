@@ -10,10 +10,10 @@ import java.awt.*;
 public class Frame extends JFrame {
     static JPanel constpanel;
     public static login_screen loginScreen;
-    static admin_panel adminPanel;
-    static student_panel studentPanel;
-    static teacher_panel teacherPanel;
-    static CardLayout cl = new CardLayout();
+    public static admin_panel adminPanel = new admin_panel();
+    public static student_panel studentPanel;
+    public static teacher_panel teacherPanel;
+    public static CardLayout cl = new CardLayout();
     public Frame(){
 
         setExtendedState(getExtendedState() | JFrame.MAXIMIZED_BOTH);
@@ -26,7 +26,7 @@ public class Frame extends JFrame {
         loginScreen = new login_screen();
         constpanel.add(loginScreen, "login");
 
-        adminPanel = new admin_panel();
+
         constpanel.add(adminPanel, "admin");
 
         studentPanel = new student_panel();

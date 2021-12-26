@@ -10,7 +10,7 @@ public class rounded_button extends JButton {
     private int arc = 40;
     private int clicked = 0;
     private String name;
-    public rounded_button(String label, Color color, Color second_color) {
+    public  rounded_button(String label, Color color, Color second_color) {
         super(label);
         setFocusable(false);
         this.color = color;

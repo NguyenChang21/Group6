@@ -8,7 +8,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class Schoolyear_panel extends rounded_panel{
-    public ArrayList<Student> student_year;
+    public Schoolyear_mid_panel pmid;
     public Schoolyear_panel(int radius, Color color){
         super(radius, color);
         setOpaque(false);
@@ -26,9 +26,7 @@ public class Schoolyear_panel extends rounded_panel{
         logo.setPreferredSize(new Dimension(100, 130));
         ptop.add(logo);
 
-        JPanel pmid = new JPanel();
-        pmid.setBackground(Color.YELLOW);
-        pmid.setLayout(new FlowLayout());
+        pmid = new Schoolyear_mid_panel();
 
 
         JPanel p2 = new JPanel();

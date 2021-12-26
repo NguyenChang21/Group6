@@ -22,8 +22,8 @@ public class main {
         } catch (Exception e){
             e.printStackTrace();
         }
-        frame = new Frame();
 
+        frame = new Frame();
     }
     private static void showUserInfo(ResultSet rs) throws SQLException {
         System.out.println("Id: " + rs.getInt("msv"));
