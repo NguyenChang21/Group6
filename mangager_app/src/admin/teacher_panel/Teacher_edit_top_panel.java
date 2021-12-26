@@ -10,20 +10,20 @@ public class Teacher_edit_top_panel extends JPanel {
     rounded_button save;
     rounded_button discard;
     rounded_button search;
-    textfield_type getname;
+    textfield_type getCMND;
     public Teacher_edit_top_panel() {
         setOpaque(false);
         setLayout(new FlowLayout(FlowLayout.CENTER, 5, 0));
 
         JLabel addname = new JLabel();
-        addname.setText("Nhập tên giảng viên: ");
+        addname.setText("Nhập CMND giảng viên: ");
         addname.setFont(new Font(null, Font.ITALIC, 25));
 
-        getname = new textfield_type();
-        getname.setFont(new Font(null, Font.ITALIC, 25));
-        getname.setPreferredSize(new Dimension(400, 50));
-        getname.setAlignmentY(Component.BOTTOM_ALIGNMENT);
-        getname.setHorizontalAlignment(JTextField.CENTER);
+        getCMND = new textfield_type();
+        getCMND.setFont(new Font(null, Font.ITALIC, 25));
+        getCMND.setPreferredSize(new Dimension(300, 50));
+        getCMND.setAlignmentY(Component.BOTTOM_ALIGNMENT);
+        getCMND.setHorizontalAlignment(JTextField.CENTER);
 
         search = new rounded_button("Search",
                 new Color(245, 220, 100), new Color(220, 159, 56), "find");
@@ -42,7 +42,7 @@ public class Teacher_edit_top_panel extends JPanel {
 
 
         add(addname);
-        add(getname);
+        add(getCMND);
         add(search);
         add(save);
         add(discard);

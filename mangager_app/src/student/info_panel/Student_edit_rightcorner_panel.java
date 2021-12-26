@@ -45,6 +45,7 @@ public class Student_edit_rightcorner_panel extends rounded_panel {
         fiD_number.setAlignmentY(Component.BOTTOM_ALIGNMENT);
         fiD_number.setHorizontalAlignment(JTextField.LEFT);
         fiD_number.setBorder(BorderFactory.createEmptyBorder());
+        fiD_number.setEditable(false);
         fiD_number.setOpaque(false);
 
         JPanel p1 = new JPanel();
@@ -65,6 +66,7 @@ public class Student_edit_rightcorner_panel extends rounded_panel {
         fstatus.setAlignmentY(Component.BOTTOM_ALIGNMENT);
         fstatus.setHorizontalAlignment(JTextField.LEFT);
         fstatus.setBorder(BorderFactory.createEmptyBorder());
+        fstatus.setEditable(false);
         fstatus.setOpaque(false);
 
         JPanel p2 = new JPanel();
@@ -86,6 +88,7 @@ public class Student_edit_rightcorner_panel extends rounded_panel {
         fstudent_id.setAlignmentY(Component.BOTTOM_ALIGNMENT);
         fstudent_id.setHorizontalAlignment(JTextField.LEFT);
         fstudent_id.setBorder(BorderFactory.createEmptyBorder());
+        fstudent_id.setEditable(false);
         fstudent_id.setOpaque(false);
 
         JPanel p3 = new JPanel();
@@ -107,6 +110,7 @@ public class Student_edit_rightcorner_panel extends rounded_panel {
         fdepartment.setAlignmentY(Component.BOTTOM_ALIGNMENT);
         fdepartment.setHorizontalAlignment(JTextField.LEFT);
         fdepartment.setBorder(BorderFactory.createEmptyBorder());
+        fdepartment.setEditable(false);
         fdepartment.setOpaque(false);
 
         JPanel p4 = new JPanel();
@@ -128,6 +132,7 @@ public class Student_edit_rightcorner_panel extends rounded_panel {
         fmajor.setAlignmentY(Component.BOTTOM_ALIGNMENT);
         fmajor.setHorizontalAlignment(JTextField.LEFT);
         fmajor.setBorder(BorderFactory.createEmptyBorder());
+        fmajor.setEditable(false);
         fmajor.setOpaque(false);
 
         JPanel p5 = new JPanel();
@@ -149,6 +154,7 @@ public class Student_edit_rightcorner_panel extends rounded_panel {
         fschool_year.setAlignmentY(Component.BOTTOM_ALIGNMENT);
         fschool_year.setHorizontalAlignment(JTextField.LEFT);
         fschool_year.setBorder(BorderFactory.createEmptyBorder());
+        fschool_year.setEditable(false);
         fschool_year.setOpaque(false);
 
         JPanel p6 = new JPanel();
@@ -170,6 +176,7 @@ public class Student_edit_rightcorner_panel extends rounded_panel {
         fgpa.setAlignmentY(Component.BOTTOM_ALIGNMENT);
         fgpa.setHorizontalAlignment(JTextField.LEFT);
         fgpa.setBorder(BorderFactory.createEmptyBorder());
+        fgpa.setEditable(false);
         fgpa.setOpaque(false);
 
         JPanel p7 = new JPanel();
@@ -191,6 +198,7 @@ public class Student_edit_rightcorner_panel extends rounded_panel {
         fusername.setAlignmentY(Component.BOTTOM_ALIGNMENT);
         fusername.setHorizontalAlignment(JTextField.LEFT);
         fusername.setBorder(BorderFactory.createEmptyBorder());
+        fusername.setEditable(false);
         fusername.setOpaque(false);
 
         JPanel p8 = new JPanel();

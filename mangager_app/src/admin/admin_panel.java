@@ -1,21 +1,21 @@
 package admin;
 
 import admin.class_panel.Class_panel;
-import admin.department_panel.Department_panel;
+import admin.department_panel.Department_teacher_panel;
 import admin.info_panel.Info_panel;
 import admin.menu_panel.Menu_panel;
+import admin.department_panel.Department_student_panel;
 import admin.schoolyear_panel.Schoolyear_panel;
 import admin.student_panel.Student_edit_panel;
 import admin.student_panel.Student_insert_panel;
-import admin.student_panel.Student_panel;
 import admin.student_panel.Student_view_panel;
 import admin.teacher_panel.Teacher_edit_panel;
-import admin.teacher_panel.Teacher_panel;
 import admin.teacher_panel.Teacher_view_panel;
 import admin.teacher_panel.Teacher_insert_panel;
 import mainScreen.mainPanel;
 import prototype.rounded_button;
 import prototype.option_panel;
+import prototype.option_student_teacherpanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -45,7 +45,8 @@ public class admin_panel extends mainPanel implements ActionListener, MouseListe
     Teacher_edit_panel teacher_edit_panel;
     Teacher_insert_panel teacher_insert_panel;
     Class_panel class_panel;
-    public Department_panel department_panel;
+    public static Department_student_panel department_student_panel;
+    public static Department_teacher_panel department_teacher_panel;
     public static Schoolyear_panel schoolyear_panel;
     Info_panel info_panel;
 
@@ -61,8 +62,9 @@ public class admin_panel extends mainPanel implements ActionListener, MouseListe
             , class_button, department_button, schoolyear_button, info_button};
 
     option_panel op = new option_panel();
+    option_student_teacherpanel op_st = new option_student_teacherpanel();
     boolean optionpanel_opened = false;
-    int optionpanel_posy;
+
 
     public admin_panel(){
         init();
@@ -83,6 +85,8 @@ public class admin_panel extends mainPanel implements ActionListener, MouseListe
 
         op.edit_button.addActionListener(this);
         op.view_button.addActionListener(this);
+        op_st.teacher_button.addActionListener(this);
+        op_st.student_button.addActionListener(this);
 
         for (rounded_button item:rbt ) {
             item.addActionListener(this);
@@ -112,7 +116,8 @@ public class admin_panel extends mainPanel implements ActionListener, MouseListe
         teacher_insert_panel = new Teacher_insert_panel(70, new Color(195, 175, 145));
         class_panel = new Class_panel(70, new Color(195, 175, 145));
 
-        department_panel = new Department_panel(70, new Color(195, 175, 145));
+        department_student_panel = new Department_student_panel(70, new Color(195, 175, 145));
+        department_teacher_panel = new Department_teacher_panel(70, new Color(195, 175, 145));
         schoolyear_panel = new Schoolyear_panel(70, new Color(195, 175, 145));
         info_panel = new Info_panel(70, Color.YELLOW);
 
@@ -125,7 +130,8 @@ public class admin_panel extends mainPanel implements ActionListener, MouseListe
         mid_panel.view_panel.add(teacher_edit_panel, teacher_button.getName() + "edit");
         mid_panel.view_panel.add(teacher_insert_panel, "insert_teacher");
         mid_panel.view_panel.add(class_panel, class_button.getName());
-        mid_panel.view_panel.add(department_panel, department_button.getName());
+        mid_panel.view_panel.add(department_student_panel, department_button.getName() + "student");
+        mid_panel.view_panel.add(department_teacher_panel, department_button.getName() + "teacher");
         mid_panel.view_panel.add(schoolyear_panel, schoolyear_button.getName());
         mid_panel.view_panel.add(info_panel, info_button.getName());
         cl.show(mid_panel.view_panel,menu_button.getName());
@@ -140,7 +146,7 @@ public class admin_panel extends mainPanel implements ActionListener, MouseListe
 
         }
         if (e.getSource() == student_button){
-            removeTheother(mid_panel.buttoncenter_panel, e);
+            removeTheother(mid_panel.buttoncenter_panel, e, op);
         }
         if (e.getSource() == student_view_panel.pmid.mini_middel_panel.insert_button){
             cl.show(mid_panel.view_panel, "insert_student");
@@ -150,13 +156,13 @@ public class admin_panel extends mainPanel implements ActionListener, MouseListe
 
         }
         if (e.getSource() == teacher_button){
-            removeTheother(mid_panel.buttoncenter_panel, e);
+            removeTheother(mid_panel.buttoncenter_panel, e, op);
         }
         if (e.getSource() == class_button){
-            removeTheother(mid_panel.buttoncenter_panel,e);
+            removeTheother(mid_panel.buttoncenter_panel,e, op);
         }
         if (e.getSource() == department_button){
-            removeTheother(mid_panel.buttoncenter_panel, e);
+            removeTheother(mid_panel.buttoncenter_panel,e, op_st);
 
         }
         if (e.getSource() == schoolyear_button){
@@ -164,7 +170,7 @@ public class admin_panel extends mainPanel implements ActionListener, MouseListe
 
         }
         if (e.getSource() == info_button){
-            removeTheother(mid_panel.buttoncenter_panel, e);
+            removeTheother(mid_panel.buttoncenter_panel, e, op);
 
         }
 
@@ -179,6 +185,20 @@ public class admin_panel extends mainPanel implements ActionListener, MouseListe
             for (rounded_button item:rbt) {
                 if(item.getClicked() == 1){
                     cl.show(mid_panel.view_panel, item.getName() + "edit");
+                }
+            }
+        }
+        if (e.getSource() == op_st.student_button){
+            for (rounded_button item:rbt) {
+                if(item.getClicked() == 1){
+                    cl.show(mid_panel.view_panel, item.getName() + "student");
+                }
+            }
+        }
+        if (e.getSource() == op_st.teacher_button){
+            for (rounded_button item:rbt) {
+                if(item.getClicked() == 1){
+                    cl.show(mid_panel.view_panel, item.getName() + "teacher");
                 }
             }
         }
@@ -207,7 +227,7 @@ public class admin_panel extends mainPanel implements ActionListener, MouseListe
     public void mouseExited(MouseEvent e) {
     }
 
-    public void removeTheother(Container container, ActionEvent e){
+    public void removeTheother(Container container, ActionEvent e, JPanel panel){
         if (optionpanel_opened){
             for (rounded_button item:rbt) {
                 item.setClicked(0);
@@ -218,6 +238,8 @@ public class admin_panel extends mainPanel implements ActionListener, MouseListe
 
 
             removeObject(container, (Component) op);
+            removeObject(container, (Component) op_st);
+
             for (int i = index; i < 7; i++) {
                 removeObject(container, (Component) rbt[i]);
             }
@@ -233,7 +255,7 @@ public class admin_panel extends mainPanel implements ActionListener, MouseListe
             }
             gbc.gridy = index + 1;
             gbc.weighty = 0.1f;
-            container.add(op, gbc);
+            container.add(panel, gbc);
             for (int i = index; i < 7; i++){
                 gbc.gridy = i + 2;
                 container.add(rbt[i], gbc);
@@ -254,7 +276,7 @@ public class admin_panel extends mainPanel implements ActionListener, MouseListe
             }
             gbc.gridy = index;
             gbc.weighty = 0.1f;
-            container.add(op, gbc);
+            container.add(panel, gbc);
             for (int i = index; i < 7; i++){
                 gbc.gridy= i + 1;
                 container.add(rbt[i], gbc);

@@ -1,5 +1,6 @@
 package admin.teacher_panel;
 
+import admin.admin_panel;
 import admin.student_panel.Student_edit_middle_panel;
 import admin.student_panel.Student_edit_top_panel;
 import lgScreen.main;
@@ -78,7 +79,7 @@ public class Teacher_edit_panel extends rounded_panel implements ActionListener 
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == ptop.search){
             try {
-                ResultSet rs = main.exe.searchTeacher(main.conn,ptop.getname.getText());
+                ResultSet rs = main.exe.searchTeacher(main.conn,ptop.getCMND.getText());
                 while (rs.next()){
                     pmid.lpanel.faddress.setText(rs.getString("address"));
 
@@ -87,7 +88,7 @@ public class Teacher_edit_panel extends rounded_panel implements ActionListener 
                     pmid.lpanel.fethnic.setText(rs.getString("ethnic"));
                     pmid.lpanel.fgender.setText(rs.getString("gender"));
                     pmid.lpanel.fhometown.setText(rs.getString("hometown"));
-                    pmid.lpanel.fname.setText(rs.getString("fname") +" "+ rs.getString("lname"));
+                    pmid.lpanel.fname.setText(rs.getString("fname") + rs.getString("lname"));
                     pmid.lpanel.freligion.setText(rs.getString("religion"));
                     pmid.lpanel.fiD_number.setText(rs.getString("CMND"));
 
@@ -132,11 +133,12 @@ public class Teacher_edit_panel extends rounded_panel implements ActionListener 
             teacher.setStatus(pmid.rpanel.fstatus.getText());
             teacher.setUsername(pmid.rpanel.fusername.getText());
             try {
-                if (main.exe.updateTeacher(teacher, main.conn, ptop.getname.getText())){
+                if (main.exe.updateTeacher(teacher, main.conn, ptop.getCMND.getText())){
                     JOptionPane.showMessageDialog(null,
                             "Đã chỉnh sửa thành công",
                             "Kết quả",
                             JOptionPane.INFORMATION_MESSAGE);
+                    admin_panel.department_teacher_panel.pmid.update();
                 } else {
                     JOptionPane.showMessageDialog(null,
                             "Đã chỉnh sửa thất bại",
@@ -164,7 +166,7 @@ public class Teacher_edit_panel extends rounded_panel implements ActionListener 
             pmid.rpanel.fpassword.setText("");
             pmid.rpanel.fstatus.setText("");
             pmid.rpanel.fusername.setText("");
-            ptop.getname.setText("");
+            ptop.getCMND.setText("");
         }
     }
 }

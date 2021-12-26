@@ -1,4 +1,5 @@
 package admin.teacher_panel;
+import admin.admin_panel;
 import admin.student_panel.Student_edit_middle_panel;
 import admin.student_panel.Student_insert_top_panel;
 import lgScreen.main;
@@ -157,6 +158,8 @@ public class Teacher_insert_panel extends rounded_panel implements ActionListene
                                 "Đã thêm giảng viên thành công",
                                 "Kết quả",
                                 JOptionPane.INFORMATION_MESSAGE);
+                        admin_panel.department_teacher_panel.pmid.update();
+
                     } else {
                         JOptionPane.showMessageDialog(null,
                                 "Đã thêm giảng viên thất bại",

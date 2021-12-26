@@ -35,7 +35,7 @@ public class Frame extends JFrame {
         teacherPanel = new teacher_panel();
         constpanel.add(teacherPanel, "teacher");
 
-        cl.show(constpanel, "admin");
+        cl.show(constpanel, "login");
         add(constpanel);
         getContentPane().setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
         pack();

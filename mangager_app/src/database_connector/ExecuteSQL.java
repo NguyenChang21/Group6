@@ -112,16 +112,45 @@ public class ExecuteSQL {
         return rs;
     }
 
-    public ResultSet searchTeacher(Connection conn, String lname) throws SQLException {
+    public ResultSet searchTeacher(Connection conn, String CMND) throws SQLException {
         String sql = "SELECT `STT`, `fname`, `lname`, `gender`, `date_of_birth`, `email`, `address`," +
                 " `phone_number`, `username`, `password`, `ethnic`, `CMND`, `hometown`, `department`," +
                 " `status`, `religion`, `qualification`, `teaching_class`," +
-                " `note` FROM `teacher` WHERE lname = " + "'" + lname + "'" ;
+                " `note` FROM `teacher` WHERE CMND = " + "'" + CMND + "'" ;
         Statement stm = conn.createStatement();
         ResultSet rs = stm.executeQuery(sql);
         return rs;
     }
 
+    public ResultSet searchStudent_bySchoolyear(Connection conn, String schoolyear) throws SQLException {
+        String sql = "SELECT `STT`, `fname`, `lname`, `gender`, `date_of_birth`, `email`," +
+                " `school year`, `major`, `msv`, `department`, `address`, `phone_number`," +
+                " `username`, `password`, `GPA`, `ethnic`, `CMND`, `home_town`, `status`," +
+                " `religion`, `class_attending`, `class_completed`, " +
+                "`note` FROM `student` WHERE `school year` = " + "'" + schoolyear + "'";
+        Statement stm = conn.createStatement();
+        ResultSet rs = stm.executeQuery(sql);
+        return rs;
+    }
+    public ResultSet searchStudent_byDepartment(Connection conn, String department) throws SQLException {
+        String sql = "SELECT `STT`, `fname`, `lname`, `gender`, `date_of_birth`, `email`," +
+                " `school year`, `major`, `msv`, `department`, `address`, `phone_number`," +
+                " `username`, `password`, `GPA`, `ethnic`, `CMND`, `home_town`, `status`," +
+                " `religion`, `class_attending`, `class_completed`, " +
+                "`note` FROM `student` WHERE `department` = " + "'" + department + "'";
+        Statement stm = conn.createStatement();
+        ResultSet rs = stm.executeQuery(sql);
+        return rs;
+    }
+    public ResultSet searchTeacher_byDepartment(Connection conn, String department) throws SQLException {
+        String sql = "SELECT `STT`, `fname`, `lname`, `gender`, `date_of_birth`, `email`, `address`," +
+                " `phone_number`, `username`, `password`, `ethnic`, `CMND`, `hometown`, `department`," +
+                " `status`, `religion`, `qualification`, `teaching_class`," +
+                " `note` FROM `teacher` WHERE department = " + "'" + department + "'" ;
+        Statement stm = conn.createStatement();
+        ResultSet rs = stm.executeQuery(sql);
+        return rs;
+    }
     public boolean updateStudent(Student student, Connection conn, int msv) {
         String sql = "UPDATE `student` SET `fname`=?,`lname`=?," +
                 "`gender`=?,`date_of_birth`=?,`email`=?," +
@@ -166,11 +195,11 @@ public class ExecuteSQL {
         return false;
     }
 
-    public boolean updateTeacher(Teacher teacher, Connection conn, String lname){
+    public boolean updateTeacher(Teacher teacher, Connection conn, String CMND){
         String sql = "UPDATE `teacher` SET `fname`=?,`lname`=?,`gender`=?,`date_of_birth`=?,`email`=?," +
                 "`address`=?,`phone_number`=?,`username`=?,`password`=?,`ethnic`=?,`CMND`=?,`hometown`=?," +
                 "`department`=?,`status`=?,`religion`=?,`qualification`=?," +
-                "`teaching_class`=?,`note`=? WHERE lname = " + "'" + lname + "'";
+                "`teaching_class`=?,`note`=? WHERE CMND = " + "'" + CMND + "'";
         try {
             PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setString(1, teacher.getFirstname());
@@ -240,7 +269,7 @@ public class ExecuteSQL {
 
     }
 
-    public ResultSet distinctDepartment_student(Connection conn) throws SQLException {
+    public ResultSet departmentdítinct_student(Connection conn) throws SQLException {
         String sql = "SELECT DISTINCT `department` FROM student";
         Statement stm = conn.createStatement();
         ResultSet rs = stm.executeQuery(sql);
@@ -248,11 +277,12 @@ public class ExecuteSQL {
 
     }
 
-    public ResultSet distinctDepartment_teacher(Connection conn) throws SQLException {
+    public ResultSet departmentdítinct_teacher(Connection conn) throws SQLException {
         String sql = "SELECT DISTINCT `department` FROM teacher";
         Statement stm = conn.createStatement();
         ResultSet rs = stm.executeQuery(sql);
         return rs;
 
     }
+
 }

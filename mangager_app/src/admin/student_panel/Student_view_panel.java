@@ -9,6 +9,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.Format;
+import java.text.SimpleDateFormat;
 
 public class Student_view_panel extends rounded_panel implements ActionListener {
     public Student_view_toppanel ptop;
@@ -62,8 +64,10 @@ public class Student_view_panel extends rounded_panel implements ActionListener 
             try {
                 ResultSet rs = main.exe.searchStudent(main.conn,Integer.parseInt(ptop.getId.getText()) );
                 while (rs.next()){
+
                     pmid.mini_middel_panel.leftcorner_panel.fname.setText(rs.getString("fname") + " " + rs.getString("lname"));
-                    pmid.mini_middel_panel.leftcorner_panel.fdob.setText( rs.getDate("date_of_birth").toString());
+                    Format formatter = new SimpleDateFormat("dd/MM/yyyy");
+                    pmid.mini_middel_panel.leftcorner_panel.fdob.setText( formatter.format(rs.getDate("date_of_birth").getTime()));
                     pmid.mini_middel_panel.leftcorner_panel.fgender.setText(rs.getString("gender"));
                     pmid.mini_middel_panel.leftcorner_panel.fhometown.setText(rs.getString("home_town"));
                     pmid.mini_middel_panel.leftcorner_panel.faddress.setText(rs.getString("address"));
