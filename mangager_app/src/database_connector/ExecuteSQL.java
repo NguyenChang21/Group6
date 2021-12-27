@@ -8,7 +8,7 @@ import java.sql.*;
 public class ExecuteSQL {
 
     public ResultSet searchAdmin(Connection conn) throws SQLException {
-        String sql = "SELECT `username`, `password` FROM `admin` WHERE 1";
+        String sql = "SELECT `username`, `password`, `fname`, `lname`, `phone_number`, `email`, `status`, `work_address` FROM `admin`";
         Statement stm = conn.createStatement();
         ResultSet rs = stm.executeQuery(sql);
         return rs;

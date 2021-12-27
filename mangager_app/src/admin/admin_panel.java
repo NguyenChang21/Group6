@@ -25,6 +25,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.ResultSet;
 
 public class admin_panel extends mainPanel implements ActionListener, MouseListener {
     JPanel p1;
@@ -121,7 +122,7 @@ public class admin_panel extends mainPanel implements ActionListener, MouseListe
         department_student_panel = new Department_student_panel(70, new Color(195, 175, 145));
         department_teacher_panel = new Department_teacher_panel(70, new Color(195, 175, 145));
         schoolyear_panel = new Schoolyear_panel(70, new Color(195, 175, 145));
-        info_panel = new Info_panel(70, Color.YELLOW);
+        info_panel = new Info_panel(70, new Color(195, 175, 145));
 
         mid_panel.view_panel.add(menu_panel, menu_button.getName());
 
@@ -177,8 +178,23 @@ public class admin_panel extends mainPanel implements ActionListener, MouseListe
 
         }
         if (e.getSource() == info_button){
-            removeTheother(mid_panel.buttoncenter_panel, e, op);
+            cl.show(mid_panel.view_panel, info_button.getName());
+            try {
+                ResultSet rs = main.exe.searchAdmin(main.conn);
+                while (rs.next()){
+                    info_panel.infoPleft.pleft.femail.setText(rs.getString("email"));
+                    info_panel.infoPleft.pleft.fphone_number.setText(rs.getString("phone_number"));
+                    info_panel.infoPleft.pleft.fstatus.setText(rs.getString("status"));
+                    info_panel.infoPleft.pleft.fwork_address.setText(rs.getString("work_address"));
 
+                    info_panel.infoPright.pright.ffname.setText(rs.getString("fname"));
+                    info_panel.infoPright.pright.flname.setText(rs.getString("lname"));
+                    info_panel.infoPright.pright.fusername.setText(rs.getString("username"));
+                    info_panel.infoPright.pright.fpassword.setText(rs.getString("password"));
+                }
+            }catch (Exception ex) {
+                ex.printStackTrace();
+            }
         }
 
         if (e.getSource() == op.view_button){
