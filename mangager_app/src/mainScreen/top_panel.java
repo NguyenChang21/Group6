@@ -9,8 +9,8 @@ import java.awt.event.ActionListener;
 
 public class top_panel extends JPanel implements ActionListener {
     String user_name = "User name";
-    rounded_button sign_out;
-    rounded_button setting;
+    public rounded_button exit;
+    public rounded_button log_out;
     public top_panel(){
         GridBagLayout gbl = new GridBagLayout();
         GridBagConstraints gbc = new GridBagConstraints();
@@ -58,24 +58,24 @@ public class top_panel extends JPanel implements ActionListener {
         gbc.gridx = 3;
         add(p3, gbc);
 
-        sign_out = new rounded_button("Exit",
+        exit = new rounded_button("Exit",
                 new Color(245, 220, 100), new Color(220, 159, 56), "signout");
-        sign_out.setPreferredSize(new Dimension(130, 50));
-        sign_out.setFont(new Font(null, Font.BOLD, 20));
-        sign_out.addActionListener(this);
+        exit.setPreferredSize(new Dimension(130, 50));
+        exit.setFont(new Font(null, Font.BOLD, 20));
+        exit.addActionListener(this);
 //        sign_out.setForeground(new Color(255,255,255));
-        setting = new rounded_button("Setting",
+        log_out = new rounded_button("Đăng xuất",
                 new Color(164, 248, 203, 255), new Color(46, 135, 198, 220), "exit");
-        setting.setPreferredSize(new Dimension(130, 50));
-        setting.setFont(new Font(null, Font.BOLD, 20));
+        log_out.setPreferredSize(new Dimension(130, 50));
+        log_out.setFont(new Font(null, Font.BOLD, 20));
 
         gbc.fill = GridBagConstraints.HORIZONTAL;
         JPanel p6 = new JPanel();
         p6.setBackground(Color.GREEN);
         p6.setLayout(new FlowLayout(FlowLayout.TRAILING, 10, 0));
         p6.setOpaque(false);
-        p6.add(setting);
-        p6.add(sign_out);
+        p6.add(log_out);
+        p6.add(exit);
         gbc.weightx = 0.03f;
         gbc.gridx = 4;
         add(p6, gbc);
@@ -89,7 +89,7 @@ public class top_panel extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == sign_out){
+        if (e.getSource() == exit){
             System.exit(0);
         }
     }

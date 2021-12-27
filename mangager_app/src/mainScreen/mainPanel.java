@@ -5,6 +5,7 @@ import java.awt.*;
 
 public class mainPanel extends JPanel {
     protected middle_panel mid_panel;
+    public top_panel toppanel;
     public mainPanel(){
 //        setPreferredSize(new Dimension(800, 600));
 //        setBackground(new Color(255, 255, 217));
@@ -13,13 +14,13 @@ public class mainPanel extends JPanel {
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.weightx = 1;
         gbc.weighty = 0.03f;
-        top_panel p1 = new top_panel();
-        p1.setBackground(Color.RED);
-        p1.setOpaque(false);
+        toppanel = new top_panel();
+        toppanel.setBackground(Color.RED);
+        toppanel.setOpaque(false);
         gbc.fill = GridBagConstraints.BOTH;
         gbc.gridx = 0;
         gbc.gridy = 0;
-        add(p1, gbc);
+        add(toppanel, gbc);
 
         JPanel p2 = new JPanel();
         p2.setOpaque(false);
@@ -41,6 +42,9 @@ public class mainPanel extends JPanel {
         add(p4, gbc);
 
 
+    }
+    public top_panel getToppanel(){
+        return toppanel;
     }
     @Override
     protected void paintComponent(Graphics g) {

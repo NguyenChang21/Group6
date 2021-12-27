@@ -8,5 +8,6 @@ public class Info_panel extends rounded_panel{
         super(radius, color);
         setOpaque(false);
 
+
     }
 }

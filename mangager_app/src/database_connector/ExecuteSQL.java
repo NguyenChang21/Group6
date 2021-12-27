@@ -122,6 +122,15 @@ public class ExecuteSQL {
         return rs;
     }
 
+    public ResultSet searchTeacher_byusername(Connection conn, String username) throws SQLException {
+        String sql = "SELECT `STT`, `fname`, `lname`, `gender`, `date_of_birth`, `email`, `address`," +
+                " `phone_number`, `username`, `password`, `ethnic`, `CMND`, `hometown`, `department`," +
+                " `status`, `religion`, `qualification`, `teaching_class`," +
+                " `note` FROM `teacher` WHERE username = " + "'" + username + "'" ;
+        Statement stm = conn.createStatement();
+        ResultSet rs = stm.executeQuery(sql);
+        return rs;
+    }
     public ResultSet searchStudent_bySchoolyear(Connection conn, String schoolyear) throws SQLException {
         String sql = "SELECT `STT`, `fname`, `lname`, `gender`, `date_of_birth`, `email`," +
                 " `school year`, `major`, `msv`, `department`, `address`, `phone_number`," +

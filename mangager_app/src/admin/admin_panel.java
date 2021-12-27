@@ -12,7 +12,9 @@ import admin.student_panel.Student_view_panel;
 import admin.teacher_panel.Teacher_edit_panel;
 import admin.teacher_panel.Teacher_view_panel;
 import admin.teacher_panel.Teacher_insert_panel;
+import lgScreen.main;
 import mainScreen.mainPanel;
+import mainScreen.top_panel;
 import prototype.rounded_button;
 import prototype.option_panel;
 import prototype.option_student_teacherpanel;
@@ -138,6 +140,11 @@ public class admin_panel extends mainPanel implements ActionListener, MouseListe
 
         student_view_panel.pmid.mini_middel_panel.insert_button.addActionListener(this);
         teacher_view_panel.pmid.mini_middel_panel.insert_button.addActionListener(this);
+
+    }
+    @Override
+    public top_panel getToppanel(){
+        return super.toppanel;
     }
     @Override
     public void actionPerformed(ActionEvent e) {

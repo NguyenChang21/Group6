@@ -163,6 +163,7 @@ public class login_panel extends rounded_panel implements ActionListener {
                     ResultSet rs = main.exe.searchTeacherlogin(main.conn, name_field.getText());
                     while (rs.next()) {
                         if (pass_field.getText().equals(rs.getString("password"))) {
+                            main.rs_user = main.exe.searchTeacher_byusername(main.conn, name_field.getText());
                             Frame.cl.show(Frame.constpanel, "teacher");
                         }
                         else {

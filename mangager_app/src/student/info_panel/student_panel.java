@@ -2,6 +2,7 @@ package student.info_panel;
 import lgScreen.main;
 import mainScreen.mainPanel;
 
+import mainScreen.top_panel;
 import prototype.rounded_button;
 import student.Class_panel;
 import student.Menu_panel;
@@ -79,6 +80,10 @@ public class student_panel extends mainPanel implements ActionListener {
 
         cl.show(mid_panel.view_panel, "view_panel");
 
+    }
+    @Override
+    public top_panel getToppanel(){
+        return toppanel;
     }
 
     @Override
