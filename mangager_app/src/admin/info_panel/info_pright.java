@@ -12,7 +12,6 @@ public class info_pright extends JPanel {
         GridBagLayout gbl = new GridBagLayout();
         GridBagConstraints gbc = new GridBagConstraints();
         setLayout(gbl);
-
         gbc.fill = GridBagConstraints.BOTH;
 
         logo_longpanel p1 = new logo_longpanel();

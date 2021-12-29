@@ -1,5 +1,6 @@
 package database_connector;
 
+import admin.Admin;
 import student.Student;
 import teacher.Teacher;
 
@@ -238,7 +239,31 @@ public class ExecuteSQL {
 
         return false;
     }
+    public boolean updateAdmin(Connection conn, Admin admin){
 
+        String sql = "UPDATE `admin` SET `username`=?,`password`=?,`fname`=?," +
+                "`lname`=?,`phone_number`=?,`email`=?,`status`=?," +
+                "`work_address`=?";
+        try {
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1, admin.getUsername());
+            pstm.setString(2, admin.getPassword());
+            pstm.setString(3, admin.getFirstname());
+            pstm.setString(4, admin.getLastname());
+            pstm.setString(5, admin.getPhone_number());
+            pstm.setString(6, admin.getEmail());
+            pstm.setString(7, admin.getStatus());
+            pstm.setString(8, admin.getAddress());
+            pstm.executeUpdate();
+            return true;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return false;
+
+    }
     public boolean deleteStudent(int id, Connection conn){
         String sql = "DELETE FROM `student` WHERE msv = " + id;
         try {

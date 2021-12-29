@@ -1,10 +1,15 @@
 package admin.info_panel;
+import admin.Admin;
+import lgScreen.main;
 import prototype.rounded_panel;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 
-public class Info_panel extends rounded_panel{
+public class Info_panel extends rounded_panel implements ActionListener {
     public info_pleft infoPleft;
     public info_pright infoPright;
     public Info_panel(int radius, Color color){
@@ -76,5 +81,38 @@ public class Info_panel extends rounded_panel{
         gbc.gridy = 3;
         gbc.gridwidth = 5;
         add(p7, gbc);
+
+        infoPleft.save_button.addActionListener(this);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == infoPleft.save_button){
+            Admin admin = new Admin();
+            admin.setPhone_number(infoPleft.pleft.fphone_number.getText());
+            admin.setAddress(infoPleft.pleft.fwork_address.getText());
+            admin.setEmail(infoPleft.pleft.femail.getText());
+            admin.setStatus(infoPleft.pleft.fstatus.getText());
+
+            admin.setFirstname(infoPright.pright.ffname.getText());
+            admin.setLastname(infoPright.pright.flname.getText());
+            admin.setUsername(infoPright.pright.fusername.getText());
+            admin.setPassword(infoPright.pright.fpassword.getText());
+
+            if (main.exe.updateAdmin(main.conn, admin)){
+                    JOptionPane.showMessageDialog(null,
+                            "Đã chỉnh sửa thành công",
+                            "Kết quả",
+                            JOptionPane.INFORMATION_MESSAGE);
+
+            } else {
+                    JOptionPane.showMessageDialog(null,
+                            "Đã chỉnh sửa thất bại",
+                            "Kết quả",
+                            JOptionPane.INFORMATION_MESSAGE);
+
+            }
+
+        }
     }
 }
