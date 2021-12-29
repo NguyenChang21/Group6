@@ -1,14 +1,11 @@
-package admin.menu_panel;
+package teacher.menu_panel;
 
 import lgScreen.main;
+import prototype.CircularProgressBar;
 import prototype.rounded_panel;
 
 import javax.swing.*;
-import javax.swing.border.LineBorder;
 import java.awt.*;
-import java.sql.SQLException;
-
-import prototype.CircularProgressBar;
 
 public class Menu_mid_rightcorner_panel extends rounded_panel {
 
@@ -20,6 +17,7 @@ public class Menu_mid_rightcorner_panel extends rounded_panel {
         setLayout(gbl);
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.weightx = 1;
+
         float ave_gpa = 0;
         try {
             ave_gpa = main.exe.getAveGPA(main.conn);

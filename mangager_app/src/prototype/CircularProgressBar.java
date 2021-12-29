@@ -9,11 +9,21 @@ import java.awt.geom.Rectangle2D;
 public class CircularProgressBar extends JPanel {
     float gpa;
     float value;
-    public CircularProgressBar(float gpa){
+    int radian;
+    public CircularProgressBar(float gpa, int radian){
         this.gpa = gpa;
         value = (gpa / 4) * 100;
-
+        this.radian = radian;
     }
+
+    public float getGpa() {
+        return gpa;
+    }
+
+    public void setGpa(float gpa) {
+        this.gpa = gpa;
+    }
+
     public void paint(Graphics g){
         super.paint(g);
         Graphics2D g2 = (Graphics2D) g;
@@ -21,9 +31,9 @@ public class CircularProgressBar extends JPanel {
         g2.translate(getWidth()/2, getHeight()/2);
         g2.rotate(Math.toRadians(270));
         Arc2D.Float arc = new Arc2D.Float(Arc2D.PIE);
-        Ellipse2D circle = new Ellipse2D.Float(0,0,110,110);
-        arc.setFrameFromCenter(new Point(0,0), new Point(120, 120));
-        circle.setFrameFromCenter(new Point(0,0), new Point(110, 110));
+        Ellipse2D circle = new Ellipse2D.Float(0,0,radian - 10,radian - 10);
+        arc.setFrameFromCenter(new Point(0,0), new Point(radian, radian));
+        circle.setFrameFromCenter(new Point(0,0), new Point(radian - 10, radian - 10));
         arc.setAngleStart(1);
         arc.setAngleExtent(-value *  3.6);
         g2.setColor(Color.RED);

@@ -1,8 +1,4 @@
-package admin.menu_panel;
-
-import admin.student_panel.Student_edit_leftcorner_panel;
-import admin.student_panel.Student_edit_rightcorner_panel;
-import prototype.rounded_panel;
+package student.menu_panel;
 
 import javax.swing.*;
 import java.awt.*;

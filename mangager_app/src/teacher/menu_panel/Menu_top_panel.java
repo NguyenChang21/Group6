@@ -1,4 +1,4 @@
-package admin.menu_panel;
+package teacher.menu_panel;
 
 import prototype.logo_panel;
 

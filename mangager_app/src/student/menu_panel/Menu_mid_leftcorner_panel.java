@@ -1,4 +1,4 @@
-package admin.menu_panel;
+package student.menu_panel;
 
 import prototype.rounded_panel;
 

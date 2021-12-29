@@ -318,5 +318,16 @@ public class ExecuteSQL {
         return rs;
 
     }
+    public float getAveGPA(Connection conn) throws SQLException {
+        String sql = "SELECT AVG(GPA)\n" +
+                "FROM student";
+        Statement stm = conn.createStatement();
+        ResultSet rs = stm.executeQuery(sql);
+        float ave_gpa = 0;
+        while (rs.next()){
+            ave_gpa = rs.getFloat("AVG(GPA)");
+        }
 
+        return ave_gpa;
+    }
 }
