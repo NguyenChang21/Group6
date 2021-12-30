@@ -47,7 +47,7 @@ public class admin_panel extends mainPanel implements ActionListener, MouseListe
     Teacher_view_panel teacher_view_panel;
     Teacher_edit_panel teacher_edit_panel;
     Teacher_insert_panel teacher_insert_panel;
-    Class_panel class_panel;
+    public static Class_panel class_panel;
     public static Department_student_panel department_student_panel;
     public static Department_teacher_panel department_teacher_panel;
     public static Schoolyear_panel schoolyear_panel;

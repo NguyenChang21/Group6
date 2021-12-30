@@ -29,7 +29,7 @@ public class Department_student_middle_panel extends JPanel implements ActionLis
         studentdepartments_buttons.clear();
 
         try {
-            ResultSet rs = main.exe.departmentdítinct_student(main.conn);
+            ResultSet rs = main.exe.departmentdistinct_student(main.conn);
             while(rs.next()){
                 student_departments.add(rs.getString("department"));
                 student_departments.sort(Comparator.naturalOrder());

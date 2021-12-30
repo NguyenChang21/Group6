@@ -9,7 +9,7 @@ import java.awt.*;
 
 public class Menu_mid_rightcorner_panel extends rounded_panel {
 
-
+    public CircularProgressBar gpa;
     public Menu_mid_rightcorner_panel(int radius, Color bgColor) {
         super(radius, bgColor);
         GridBagLayout gbl = new GridBagLayout();
@@ -17,7 +17,6 @@ public class Menu_mid_rightcorner_panel extends rounded_panel {
         setLayout(gbl);
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.weightx = 1;
-
         float ave_gpa = 0;
         try {
             ave_gpa = main.exe.getAveGPA(main.conn);
@@ -25,7 +24,7 @@ public class Menu_mid_rightcorner_panel extends rounded_panel {
         } catch (Exception e){
             e.printStackTrace();
         }
-        CircularProgressBar gpa = new CircularProgressBar(ave_gpa, 80);
+        gpa = new CircularProgressBar(ave_gpa, 80);
         gpa.setOpaque(false);
         gpa.setPreferredSize(new Dimension(200, 160));
         JLabel gpa_label = new JLabel("<html>GPA TRUNG BÌNH <br>TOÀN TRƯỜNG");
@@ -81,5 +80,14 @@ public class Menu_mid_rightcorner_panel extends rounded_panel {
         add(p2, gbc);
 
 
+    }
+    public void update_gpa(){
+        try {
+            gpa.setGpa(main.exe.getAveGPA(main.conn));
+            gpa.repaint();
+            gpa.revalidate();
+        } catch (Exception e){
+
+        }
     }
 }

@@ -1,11 +1,11 @@
 package student.info_panel;
-import student.menu_panel.Menu_panel;
 import lgScreen.main;
 import mainScreen.mainPanel;
 
 import mainScreen.top_panel;
 import prototype.rounded_button;
 import student.Class_panel;
+import student.menu_panel.Menu_panel;
 
 import javax.swing.*;
 import java.awt.*;

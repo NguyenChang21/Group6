@@ -5,8 +5,8 @@ import mainScreen.mainPanel;
 import mainScreen.top_panel;
 import prototype.rounded_button;
 import student.Class_panel;
-import student.menu_panel.Menu_panel;
 import teacher.info_panel.Teacher_edit_panel;
+import teacher.menu_panel.Menu_panel;
 
 import javax.swing.*;
 import java.awt.*;

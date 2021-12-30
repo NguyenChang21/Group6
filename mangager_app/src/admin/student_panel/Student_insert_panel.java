@@ -177,6 +177,7 @@ public class Student_insert_panel extends rounded_panel implements ActionListene
                         admin_panel.schoolyear_panel.pmid.update();
                         admin_panel.menu_panel.p2.lpanel.update();
                         admin_panel.menu_panel.p2.rpanel.update_gpa();
+                        admin_panel.class_panel.pmid.update();
 
                     } else {
                         JOptionPane.showMessageDialog(null,

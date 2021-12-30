@@ -142,6 +142,17 @@ public class ExecuteSQL {
         ResultSet rs = stm.executeQuery(sql);
         return rs;
     }
+    public ResultSet searchStudent_byMajor(Connection conn, String major) throws SQLException {
+        String sql = "SELECT `STT`, `fname`, `lname`, `gender`, `date_of_birth`, `email`," +
+                " `school year`, `major`, `msv`, `department`, `address`, `phone_number`," +
+                " `username`, `password`, `GPA`, `ethnic`, `CMND`, `home_town`, `status`," +
+                " `religion`, `class_attending`, `class_completed`, " +
+                "`note` FROM `student` WHERE `major` = " + "'" + major + "'";
+        Statement stm = conn.createStatement();
+        ResultSet rs = stm.executeQuery(sql);
+        return rs;
+    }
+
     public ResultSet searchStudent_byDepartment(Connection conn, String department) throws SQLException {
         String sql = "SELECT `STT`, `fname`, `lname`, `gender`, `date_of_birth`, `email`," +
                 " `school year`, `major`, `msv`, `department`, `address`, `phone_number`," +
@@ -303,7 +314,7 @@ public class ExecuteSQL {
 
     }
 
-    public ResultSet departmentdítinct_student(Connection conn) throws SQLException {
+    public ResultSet departmentdistinct_student(Connection conn) throws SQLException {
         String sql = "SELECT DISTINCT `department` FROM student";
         Statement stm = conn.createStatement();
         ResultSet rs = stm.executeQuery(sql);
@@ -373,6 +384,13 @@ public class ExecuteSQL {
             total_department = rs.getInt("COUNT(DISTINCT department)");
         }
         return total_department;
+
+    }
+    public ResultSet majordistinct_student(Connection conn) throws SQLException {
+        String sql = "SELECT DISTINCT `major` FROM student";
+        Statement stm = conn.createStatement();
+        ResultSet rs = stm.executeQuery(sql);
+        return rs;
 
     }
 }
