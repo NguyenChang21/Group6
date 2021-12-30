@@ -6,7 +6,7 @@ import java.awt.*;
 
 public class Menu_panel extends rounded_panel{
     static GridBagLayout gbl = new GridBagLayout();
-
+    public Menu_mid_panel p2;
     public Menu_panel(int radius, Color color){
         super(radius, color);
         setOpaque(false);
@@ -18,7 +18,7 @@ public class Menu_panel extends rounded_panel{
 
         JPanel p1 = new Menu_top_panel();
 
-        JPanel p2 = new Menu_mid_panel();
+        p2 = new Menu_mid_panel();
         p2.setOpaque(false);
 
         JPanel p3 = new JPanel();

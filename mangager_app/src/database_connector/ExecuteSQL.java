@@ -277,7 +277,7 @@ public class ExecuteSQL {
     }
 
     public boolean deleteTeacher(String name, Connection conn){
-        String sql = "DELETE FROM `teacher` WHERE lname = " + "'" + name + "'";
+        String sql = "DELETE FROM `teacher` WHERE username = " + "'" + name + "'";
         try {
             Statement stm = conn.createStatement();
             stm.executeUpdate(sql);
@@ -327,7 +327,52 @@ public class ExecuteSQL {
         while (rs.next()){
             ave_gpa = rs.getFloat("AVG(GPA)");
         }
-
         return ave_gpa;
+    }
+    public int student_count(Connection conn) throws SQLException {
+        String sql = "SELECT COUNT(fname) FROM student";
+        Statement stm = conn.createStatement();
+        ResultSet rs = stm.executeQuery(sql);
+        int total_student = 0;
+        while (rs.next()){
+            total_student = rs.getInt("COUNT(fname)");
+        }
+        return total_student;
+
+    }
+    public int teacher_count(Connection conn) throws SQLException {
+        String sql = "SELECT COUNT(fname) FROM teacher";
+        Statement stm = conn.createStatement();
+        ResultSet rs = stm.executeQuery(sql);
+        int total_teacher = 0;
+        while (rs.next()){
+            total_teacher = rs.getInt("COUNT(fname)");
+        }
+        return total_teacher;
+
+    }
+    public int major_count(Connection conn) throws SQLException {
+        String sql = "SELECT COUNT(DISTINCT major)\n" +
+                " FROM student";
+        Statement stm = conn.createStatement();
+        ResultSet rs = stm.executeQuery(sql);
+        int total_major = 0;
+        while (rs.next()){
+            total_major = rs.getInt("COUNT(DISTINCT major)");
+        }
+        return total_major;
+
+    }
+    public int deppartment_count(Connection conn) throws SQLException {
+        String sql = "SELECT COUNT(DISTINCT department)\n" +
+                " FROM student";
+        Statement stm = conn.createStatement();
+        ResultSet rs = stm.executeQuery(sql);
+        int total_department = 0;
+        while (rs.next()){
+            total_department = rs.getInt("COUNT(DISTINCT department)");
+        }
+        return total_department;
+
     }
 }

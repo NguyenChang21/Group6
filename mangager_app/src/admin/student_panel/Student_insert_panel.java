@@ -175,6 +175,9 @@ public class Student_insert_panel extends rounded_panel implements ActionListene
                                 "Kết quả",
                                 JOptionPane.INFORMATION_MESSAGE);
                         admin_panel.schoolyear_panel.pmid.update();
+                        admin_panel.menu_panel.p2.lpanel.update();
+                        admin_panel.menu_panel.p2.rpanel.update_gpa();
+
                     } else {
                         JOptionPane.showMessageDialog(null,
                                 "Đã thêm thất bại",

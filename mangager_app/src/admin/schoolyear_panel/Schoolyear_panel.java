@@ -53,7 +53,5 @@ public class Schoolyear_panel extends rounded_panel{
 
 
     }
-    public void schoolyear_count(){
 
-    }
 }

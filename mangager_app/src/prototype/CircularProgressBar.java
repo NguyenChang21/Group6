@@ -5,6 +5,8 @@ import java.awt.*;
 import java.awt.geom.Arc2D;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Rectangle2D;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 
 public class CircularProgressBar extends JPanel {
     float gpa;
@@ -22,6 +24,7 @@ public class CircularProgressBar extends JPanel {
 
     public void setGpa(float gpa) {
         this.gpa = gpa;
+        value = (this.gpa / 4) * 100;
     }
 
     public void paint(Graphics g){
@@ -46,9 +49,11 @@ public class CircularProgressBar extends JPanel {
         g2.rotate(Math.toRadians(90));
         g.setFont(new Font(null, Font.BOLD, 40));
         FontMetrics fm = g2.getFontMetrics();
-        Rectangle2D  r = fm.getStringBounds(gpa + "",g);
+        DecimalFormat df = new DecimalFormat("#.##");
+        df.setRoundingMode(RoundingMode.CEILING);
+        Rectangle2D  r = fm.getStringBounds(df.format(gpa) + "",g);
         int x = (0 - (int)r.getWidth())/2;
         int y = (0 - (int)r.getHeight())/2 + fm.getAscent();
-        g2.drawString(gpa + "", x, y);
+        g2.drawString(df.format(gpa) + "", x, y);
     }
 }

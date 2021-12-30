@@ -139,6 +139,8 @@ public class Teacher_edit_panel extends rounded_panel implements ActionListener 
                             "Kết quả",
                             JOptionPane.INFORMATION_MESSAGE);
                     admin_panel.department_teacher_panel.pmid.update();
+                    admin_panel.menu_panel.p2.lpanel.update();
+
                 } else {
                     JOptionPane.showMessageDialog(null,
                             "Đã chỉnh sửa thất bại",

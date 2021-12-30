@@ -9,11 +9,9 @@ import java.awt.*;
 
 public class Menu_mid_panel extends JPanel {
 
-    public Menu_mid_leftcorner_panel lpanel;
-    public Menu_mid_rightcorner_panel rpanel;
-
+    public Menu_mid_leftcorner_panel lpanel = new Menu_mid_leftcorner_panel(40,Color.WHITE);
+    public Menu_mid_rightcorner_panel rpanel = new Menu_mid_rightcorner_panel(40,Color.WHITE);
     public Menu_mid_panel() {
-
         setOpaque(false);
 
         GridBagLayout gbl = new GridBagLayout();
@@ -26,13 +24,11 @@ public class Menu_mid_panel extends JPanel {
         JPanel p1 = new JPanel();
         p1.setOpaque(false);
 
-        lpanel = new Menu_mid_leftcorner_panel(40,Color.WHITE);
         lpanel.setOpaque(false);
 
         JPanel p3 = new JPanel();
         p3.setOpaque(false);
 
-        rpanel = new Menu_mid_rightcorner_panel(40,Color.WHITE);
         rpanel.setOpaque(false);
 
         JPanel p5 = new JPanel();
@@ -62,17 +58,6 @@ public class Menu_mid_panel extends JPanel {
         gbc.gridx = 4;
         gbc.gridy = 0;
         add(p5,gbc);
-
-
-
-
-
-
-
-
-
-
-
 
 
     }

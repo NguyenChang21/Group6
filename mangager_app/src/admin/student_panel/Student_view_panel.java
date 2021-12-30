@@ -107,6 +107,8 @@ public class Student_view_panel extends rounded_panel implements ActionListener 
                             "Kết quả",
                             JOptionPane.INFORMATION_MESSAGE);
                     admin_panel.schoolyear_panel.pmid.update();
+                    admin_panel.menu_panel.p2.lpanel.update();
+                    admin_panel.menu_panel.p2.rpanel.update_gpa();
 
                 } else {
                     JOptionPane.showMessageDialog(null,

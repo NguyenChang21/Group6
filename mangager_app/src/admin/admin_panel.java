@@ -40,7 +40,7 @@ public class admin_panel extends mainPanel implements ActionListener, MouseListe
     GridBagLayout gbl;
     GridBagConstraints gbc;
 
-    Menu_panel menu_panel;
+    public static Menu_panel menu_panel;
     Student_view_panel student_view_panel;
     Student_edit_panel student_edit_panel;
     Student_insert_panel student_insert_panel;
@@ -167,7 +167,7 @@ public class admin_panel extends mainPanel implements ActionListener, MouseListe
             removeTheother(mid_panel.buttoncenter_panel, e, op);
         }
         if (e.getSource() == class_button){
-            removeTheother(mid_panel.buttoncenter_panel,e, op);
+            cl.show(mid_panel.view_panel, class_button.getName());
         }
         if (e.getSource() == department_button){
             removeTheother(mid_panel.buttoncenter_panel,e, op_st);

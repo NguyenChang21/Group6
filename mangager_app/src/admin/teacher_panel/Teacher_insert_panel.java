@@ -159,6 +159,7 @@ public class Teacher_insert_panel extends rounded_panel implements ActionListene
                                 "Kết quả",
                                 JOptionPane.INFORMATION_MESSAGE);
                         admin_panel.department_teacher_panel.pmid.update();
+                        admin_panel.menu_panel.p2.lpanel.update();
 
                     } else {
                         JOptionPane.showMessageDialog(null,
