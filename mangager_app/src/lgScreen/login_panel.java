@@ -1,5 +1,6 @@
 package lgScreen;
 
+import mainScreen.top_panel;
 import prototype.rounded_panel;
 import prototype.textfield_type;
 
@@ -145,6 +146,7 @@ public class login_panel extends rounded_panel implements ActionListener {
                     ResultSet rs = main.exe.searchStudentlogin(main.conn, name_field.getText());
                     while (rs.next()) {
                         if (pass_field.getText().equals(rs.getString("password"))) {
+
                             main.rs_user = main.exe.searchStudent(main.conn, Integer.parseInt(name_field.getText()));
                             Frame.cl.show(Frame.constpanel, "student");
                         } else {
@@ -164,6 +166,7 @@ public class login_panel extends rounded_panel implements ActionListener {
                     while (rs.next()) {
                         if (pass_field.getText().equals(rs.getString("password"))) {
                             main.rs_user = main.exe.searchTeacher_byusername(main.conn, name_field.getText());
+//                            top_panel.user_name = main.rs_user.getString("fname") + main.rs_user.getString("lname");
                             Frame.cl.show(Frame.constpanel, "teacher");
                         }
                         else {
@@ -177,7 +180,6 @@ public class login_panel extends rounded_panel implements ActionListener {
                     ex.printStackTrace();
                 }
             }
-
         }
     }
 }

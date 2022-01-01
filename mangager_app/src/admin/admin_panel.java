@@ -182,6 +182,7 @@ public class admin_panel extends mainPanel implements ActionListener, MouseListe
             try {
                 ResultSet rs = main.exe.searchAdmin(main.conn);
                 while (rs.next()){
+                    getToppanel().username_label.setText("Xin chào " + rs.getString("fname") +" "+ rs.getString("lname"));
                     info_panel.infoPleft.pleft.femail.setText(rs.getString("email"));
                     info_panel.infoPleft.pleft.fphone_number.setText(rs.getString("phone_number"));
                     info_panel.infoPleft.pleft.fstatus.setText(rs.getString("status"));

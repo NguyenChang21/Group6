@@ -15,7 +15,6 @@ import java.text.Format;
 import java.text.SimpleDateFormat;
 
 public class student_panel extends mainPanel implements ActionListener {
-    private int button_width;
 
     rounded_button menu_button;
     rounded_button class_button;
@@ -119,6 +118,8 @@ public class student_panel extends mainPanel implements ActionListener {
                     student_view_panel.pmid.rpanel.fstatus.setText(main.rs_user.getString("status"));
                     student_view_panel.pmid.rpanel.fusername.setText(main.rs_user.getString("username"));
                     student_view_panel.pmid.rpanel.fstudent_id.setText(Integer.toString(main.rs_user.getInt("msv")));
+                    getToppanel().username_label.setText("Xin chào " + main.rs_user.getString("fname") + main.rs_user.getString("lname"));
+
                 }
 
             } catch (Exception ex){

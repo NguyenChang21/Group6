@@ -48,13 +48,13 @@ public class teacher_panel extends mainPanel implements ActionListener {
         mid_panel.buttoncenter_panel.add(menu_button, gbc);
 
 
-        class_button = new rounded_button("Lớp học", c1, c2);
-        class_button.addActionListener(this);
-        class_button.setPreferredSize(new Dimension(100, 60));
-        class_button.setFont(new Font(null, Font.BOLD, 20));
-        class_button.setArc(25);
-        gbc.gridy = 1;
-        mid_panel.buttoncenter_panel.add(class_button, gbc);
+//        class_button = new rounded_button("Lớp học", c1, c2);
+//        class_button.addActionListener(this);
+//        class_button.setPreferredSize(new Dimension(100, 60));
+//        class_button.setFont(new Font(null, Font.BOLD, 20));
+//        class_button.setArc(25);
+//        gbc.gridy = 1;
+//        mid_panel.buttoncenter_panel.add(class_button, gbc);
 
         info_button = new rounded_button("Thông tin", c1, c2);
         info_button.addActionListener(this);
@@ -116,13 +116,14 @@ public class teacher_panel extends mainPanel implements ActionListener {
                     teacher_edit_panel.pmid.rpanel.fpassword.setText(main.rs_user.getString("password"));
                     teacher_edit_panel.pmid.rpanel.fstatus.setText(main.rs_user.getString("status"));
                     teacher_edit_panel.pmid.rpanel.fqualification.setText(main.rs_user.getString("qualification"));
+
+                    getToppanel().username_label.setText("Xin chào " + main.rs_user.getString("fname") + main.rs_user.getString("lname"));
                     teacher_edit_panel.pmid.rpanel.fusername.setText(main.rs_user.getString("username"));
                 }
 
             } catch (Exception ex){
                 ex.printStackTrace();
             }
-
         }
     }
 }

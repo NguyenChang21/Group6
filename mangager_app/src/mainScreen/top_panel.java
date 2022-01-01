@@ -1,5 +1,6 @@
 package mainScreen;
 
+import lgScreen.main;
 import prototype.ava_panel;
 import prototype.rounded_button;
 import javax.swing.*;
@@ -8,7 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class top_panel extends JPanel implements ActionListener {
-    String user_name = "User name";
+    public JLabel username_label;
     public rounded_button exit;
     public rounded_button log_out;
     public top_panel(){
@@ -38,7 +39,7 @@ public class top_panel extends JPanel implements ActionListener {
 //        gbc.gridx = 4;
 //        add(p3, gbc);
 
-        JLabel username_label = new JLabel(user_name);
+        username_label = new JLabel("Xin chào");
         username_label.setFont(new Font(null, Font.ITALIC, 23));
         gbc.fill = GridBagConstraints.NONE;
         JPanel p4 = new JPanel();

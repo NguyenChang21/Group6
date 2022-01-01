@@ -12,15 +12,25 @@ import java.util.ArrayList;
 import java.util.Comparator;
 
 public class Class_mid_panel extends JPanel implements ActionListener {
+//    int grx = 0;
+//    int gry = 0;
     public ArrayList<String> student_major = new ArrayList<String>();
     public ArrayList<rounded_button> studentmajor_buttons = new ArrayList<rounded_button>();
+    GridBagLayout gbl = new GridBagLayout();
+    GridBagConstraints gbc = new GridBagConstraints();
     public Class_mid_panel(){
         setOpaque(false);
-        setLayout(new FlowLayout(FlowLayout.LEFT, 25, 20));
+        setLayout(gbl);
+//        setLayout(new FlowLayout(FlowLayout.LEFT, 25, 20));
         update();
 
     }
     public void update(){
+        gbc.weightx = 1;
+        gbc.weighty = 1;
+        gbc.fill = GridBagConstraints.NONE;
+        gbc.gridx = 0;
+        gbc.gridy = 0;
         for (int i =0 ; i < studentmajor_buttons.size(); i++){
             this.remove(studentmajor_buttons.get(i));
         }
@@ -43,12 +53,19 @@ public class Class_mid_panel extends JPanel implements ActionListener {
                     student_major.get(i),
                     new Color(144, 251, 161, 234),
                     new Color(156, 240, 215));
-            button.setPreferredSize(new Dimension(310, 90));
+            button.setPreferredSize(new Dimension(310, 50));
             button.setFont(new Font(null, Font.BOLD, 22 ));
             button.setMargin(new Insets(0,0,0,0));
             studentmajor_buttons.add(button);
             studentmajor_buttons.get(i).addActionListener(this);
-            add(studentmajor_buttons.get(i));
+
+
+            if (i > 2){
+                gbc.gridx = 0;
+            }
+            gbc.gridy = i / 3;
+            add(studentmajor_buttons.get(i), gbc);
+            gbc.gridx++;
         }
         this.revalidate();
         this.repaint();

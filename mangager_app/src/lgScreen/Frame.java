@@ -40,7 +40,7 @@ public class Frame extends JFrame implements ActionListener {
         teacherPanel.getToppanel().log_out.addActionListener(this);
         constpanel.add(teacherPanel, "teacher");
 
-        cl.show(constpanel, "admin");
+        cl.show(constpanel, "login");
         add(constpanel);
         getContentPane().setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
         pack();
