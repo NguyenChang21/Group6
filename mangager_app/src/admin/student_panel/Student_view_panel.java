@@ -65,7 +65,7 @@ public class Student_view_panel extends rounded_panel implements ActionListener 
                 ResultSet rs = main.exe.searchStudent(main.conn,Integer.parseInt(ptop.getId.getText()) );
                 while (rs.next()){
 
-                    pmid.mini_middel_panel.leftcorner_panel.fname.setText(rs.getString("fname") + " " + rs.getString("lname"));
+                    pmid.mini_middel_panel.leftcorner_panel.fname.setText(rs.getString("fname") + rs.getString("lname"));
                     Format formatter = new SimpleDateFormat("dd/MM/yyyy");
                     pmid.mini_middel_panel.leftcorner_panel.fdob.setText( formatter.format(rs.getDate("date_of_birth").getTime()));
                     pmid.mini_middel_panel.leftcorner_panel.fgender.setText(rs.getString("gender"));

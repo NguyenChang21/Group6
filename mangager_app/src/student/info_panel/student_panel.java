@@ -4,10 +4,12 @@ import mainScreen.mainPanel;
 
 import mainScreen.top_panel;
 import prototype.rounded_button;
-import student.Class_panel;
+import student.class_panel.Class_panel;
+import student.class_panel.Student_table;
 import student.menu_panel.Menu_panel;
 
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -91,6 +93,22 @@ public class student_panel extends mainPanel implements ActionListener {
             cl.show(mid_panel.view_panel, "menu_panel");
         }
         if (e.getSource() == class_button){
+            try {
+                while(main.rs_user.next()){
+                    Student_table st = new Student_table(main.rs_user.getString("major"),
+                            main.rs_user.getString("school year"));
+                    st.setBorder(new LineBorder(new Color(159, 99, 62), 10, true));
+                    class_panel.pmid.add(st);
+                    JLabel label = new JLabel("Danh sách sinh viên lớp "
+                            + main.rs_user.getString("school year")
+                            + " " + main.rs_user.getString("major")
+                            , JLabel.CENTER);
+                    label.setFont(new Font(null, Font.ITALIC, 30));
+                    class_panel.ptop.add(label, BorderLayout.CENTER);
+                }
+            }catch (Exception ex){
+                ex.printStackTrace();
+            }
             cl.show(mid_panel.view_panel, "class_panel");
         }
         if (e.getSource() == info_button){

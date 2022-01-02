@@ -1,4 +1,4 @@
-package admin.department_panel;
+package student.class_panel;
 
 import lgScreen.main;
 
@@ -10,11 +10,11 @@ import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.Vector;
 
-public class Student_table extends JFrame {
+public class Student_table extends JPanel {
     JTable table;
-    public Student_table(String department ){
-        setTitle("Danh sách sinh viên khoa " + department);
-        setLayout(new FlowLayout());
+    public Student_table(String major , String schoolyear){
+        setOpaque(false);
+        setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
         Vector vct_header = new Vector();
         Vector vct_data = new Vector();
 
@@ -27,7 +27,7 @@ public class Student_table extends JFrame {
         vct_header.add("Mã sinh viên");
         vct_header.add("Số điện thoại");
         vct_header.add("Khoa");
-        vct_header.add("Lớp");
+//        vct_header.add("Lớp");
         vct_header.add("Khóa");
 //        vct_header.add();
 //        vct_header.add();
@@ -35,7 +35,7 @@ public class Student_table extends JFrame {
 //        vct_header.add();
 
         try {
-            ResultSet rs = main.exe.searchStudent_byDepartment(main.conn, department);
+            ResultSet rs = main.exe.searchStudent_byMajorandSchoolYear(main.conn, major, schoolyear);
 
             while (rs.next()){
                 Vector vct_row1 = new Vector();
@@ -49,7 +49,7 @@ public class Student_table extends JFrame {
                 vct_row1.add(rs.getString("MSV"));
                 vct_row1.add(rs.getString("phone_number"));
                 vct_row1.add(rs.getString("department"));
-                vct_row1.add(rs.getString("major"));
+//                vct_row1.add(rs.getString("major"));
                 vct_row1.add(rs.getString("school year"));
                 vct_data.add(vct_row1);
             }
@@ -59,28 +59,26 @@ public class Student_table extends JFrame {
         }
 
         table = new JTable();
-        table.setPreferredScrollableViewportSize(new Dimension(1050, 250));
+        table.setPreferredScrollableViewportSize(new Dimension(968, 450));
         table.setFillsViewportHeight(true);
         table.setModel(new DefaultTableModel(vct_data, vct_header));
-        table.setFont(new Font(null, Font.PLAIN, 15));
+        table.setFont(new Font(null, Font.PLAIN, 16));
         table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-        table.getColumnModel().getColumn(0).setPreferredWidth(27);
-        table.getColumnModel().getColumn(1).setPreferredWidth(80);
-        table.getColumnModel().getColumn(2).setPreferredWidth(100);
-        table.getColumnModel().getColumn(3).setPreferredWidth(50);
-        table.getColumnModel().getColumn(4).setPreferredWidth(90);
+        table.getColumnModel().getColumn(0).setPreferredWidth(37);
+        table.getColumnModel().getColumn(1).setPreferredWidth(70);
+        table.getColumnModel().getColumn(2).setPreferredWidth(130);
+        table.getColumnModel().getColumn(3).setPreferredWidth(70);
+        table.getColumnModel().getColumn(4).setPreferredWidth(100);
         table.getColumnModel().getColumn(5).setPreferredWidth(250);
         table.getColumnModel().getColumn(6).setPreferredWidth(75);
-        table.getColumnModel().getColumn(7).setPreferredWidth(90);
-        table.getColumnModel().getColumn(8).setPreferredWidth(70);
-        table.getColumnModel().getColumn(9).setPreferredWidth(170);
-        table.getColumnModel().getColumn(10).setPreferredWidth(45);
-        table.setEnabled(false);
+        table.getColumnModel().getColumn(7).setPreferredWidth(100);
+        table.getColumnModel().getColumn(8).setPreferredWidth(90);
+        table.getColumnModel().getColumn(9).setPreferredWidth(45);
 
+        table.setRowHeight(30);
+        table.setEnabled(false);
         JScrollPane sp = new JScrollPane(table);
         add(sp);
-        pack();
-        setLocationRelativeTo(null);
         setVisible(true);
     }
 }

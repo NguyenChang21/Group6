@@ -152,7 +152,16 @@ public class ExecuteSQL {
         ResultSet rs = stm.executeQuery(sql);
         return rs;
     }
-
+    public ResultSet searchStudent_byMajorandSchoolYear(Connection conn, String major, String schoolyear) throws SQLException {
+        String sql = "SELECT `STT`, `fname`, `lname`, `gender`, `date_of_birth`, `email`," +
+                " `school year`, `major`, `msv`, `department`, `address`, `phone_number`," +
+                " `username`, `password`, `GPA`, `ethnic`, `CMND`, `home_town`, `status`," +
+                " `religion`, `class_attending`, `class_completed`, " +
+                "`note` FROM `student` WHERE  `major` = " + "'" + major + "'" + " AND " +" `school year` = " + "'" + schoolyear + "'";
+        Statement stm = conn.createStatement();
+        ResultSet rs = stm.executeQuery(sql);
+        return rs;
+    }
     public ResultSet searchStudent_byDepartment(Connection conn, String department) throws SQLException {
         String sql = "SELECT `STT`, `fname`, `lname`, `gender`, `date_of_birth`, `email`," +
                 " `school year`, `major`, `msv`, `department`, `address`, `phone_number`," +

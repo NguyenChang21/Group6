@@ -192,6 +192,7 @@ public class Student_edit_rightcorner_panel extends rounded_panel {
         fusername.setHorizontalAlignment(JTextField.LEFT);
         fusername.setBorder(BorderFactory.createEmptyBorder());
         fusername.setOpaque(false);
+        fusername.setEditable(false);
 
         JPanel p8 = new JPanel();
         p8.setLayout(new FlowLayout(FlowLayout.LEFT));

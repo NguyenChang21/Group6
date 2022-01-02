@@ -110,7 +110,6 @@ public class Student_insert_panel extends rounded_panel implements ActionListene
             String o = pmid.rpanel.fpassword.getText();
             String p = pmid.rpanel.fschool_year.getText();
             String w = pmid.rpanel.fstatus.getText();
-            String z = pmid.rpanel.fusername.getText();
             String q = pmid.rpanel.fstudent_id.getText();
             if (
             a.length() == 0 ||
@@ -129,7 +128,6 @@ public class Student_insert_panel extends rounded_panel implements ActionListene
             o.length() == 0 ||
             p.length() == 0 ||
             w.length() == 0 ||
-            z.length() == 0 ||
             q.length() == 0
                     ){
                 JOptionPane.showMessageDialog(null,
@@ -165,7 +163,7 @@ public class Student_insert_panel extends rounded_panel implements ActionListene
                 student.setPassword(pmid.rpanel.fpassword.getText());
                 student.setSchool_year(pmid.rpanel.fschool_year.getText());
                 student.setStatus(pmid.rpanel.fstatus.getText());
-                student.setUsername(pmid.rpanel.fusername.getText());
+                student.setUsername(pmid.rpanel.fstudent_id.getText());
                 student.setStudent_id(Integer.parseInt(pmid.rpanel.fstudent_id.getText()));
 
                 try {

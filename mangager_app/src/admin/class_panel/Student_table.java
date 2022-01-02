@@ -75,6 +75,8 @@ public class Student_table extends JFrame {
         table.getColumnModel().getColumn(8).setPreferredWidth(70);
         table.getColumnModel().getColumn(9).setPreferredWidth(170);
         table.getColumnModel().getColumn(10).setPreferredWidth(45);
+        table.setEnabled(false);
+
         JScrollPane sp = new JScrollPane(table);
         add(sp);
         pack();
