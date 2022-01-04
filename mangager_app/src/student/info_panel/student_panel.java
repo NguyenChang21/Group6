@@ -94,7 +94,11 @@ public class student_panel extends mainPanel implements ActionListener {
         }
         if (e.getSource() == class_button){
             try {
+                cl.show(mid_panel.view_panel, "class_panel");
                 while(main.rs_user.next()){
+                    class_panel.ptop.removeAll();
+                    class_panel.pmid.removeAll();
+
                     Student_table st = new Student_table(main.rs_user.getString("major"),
                             main.rs_user.getString("school year"));
                     st.setBorder(new LineBorder(new Color(159, 99, 62), 10, true));
@@ -105,17 +109,51 @@ public class student_panel extends mainPanel implements ActionListener {
                             , JLabel.CENTER);
                     label.setFont(new Font(null, Font.ITALIC, 30));
                     class_panel.ptop.add(label, BorderLayout.CENTER);
+                    student_view_panel.pmid.lpanel.faddress.setText(main.rs_user.getString("address"));
+                    Format formatter = new SimpleDateFormat("dd/MM/yyyy");
+                    student_view_panel.pmid.lpanel.fdob.setText(formatter.format(main.rs_user.getDate("date_of_birth").getTime()));
+                    student_view_panel.pmid.lpanel.femail.setText(main.rs_user.getString("email"));
+                    student_view_panel.pmid.lpanel.fethnic.setText(main.rs_user.getString("ethnic"));
+                    student_view_panel.pmid.lpanel.fgender.setText(main.rs_user.getString("gender"));
+                    student_view_panel.pmid.lpanel.fhometown.setText(main.rs_user.getString("home_town"));
+                    student_view_panel.pmid.lpanel.fname.setText(main.rs_user.getString("fname") + main.rs_user.getString("lname"));
+                    student_view_panel.pmid.lpanel.fphonenumber.setText(main.rs_user.getString("phone_number"));
+                    student_view_panel.pmid.lpanel.freligion.setText(main.rs_user.getString("religion"));
+
+                    student_view_panel.pmid.rpanel.fiD_number.setText(main.rs_user.getString("CMND"));
+                    student_view_panel.pmid.rpanel.fdepartment.setText(main.rs_user.getString("department"));
+                    student_view_panel.pmid.rpanel.fgpa.setText(Float.toString(main.rs_user.getFloat("GPA")));
+                    student_view_panel.pmid.rpanel.fmajor.setText(main.rs_user.getString("major"));
+                    student_view_panel.pmid.rpanel.fpassword.setText(main.rs_user.getString("password"));
+                    student_view_panel.pmid.rpanel.fschool_year.setText(main.rs_user.getString("school year"));
+                    student_view_panel.pmid.rpanel.fstatus.setText(main.rs_user.getString("status"));
+                    student_view_panel.pmid.rpanel.fusername.setText(main.rs_user.getString("username"));
+                    student_view_panel.pmid.rpanel.fstudent_id.setText(Integer.toString(main.rs_user.getInt("msv")));
+                    getToppanel().username_label.setText("Xin chào " + main.rs_user.getString("fname") + main.rs_user.getString("lname"));
+
+
                 }
             }catch (Exception ex){
                 ex.printStackTrace();
             }
-            cl.show(mid_panel.view_panel, "class_panel");
         }
         if (e.getSource() == info_button){
             cl.show(mid_panel.view_panel, "info_panel");
             try {
                 while (main.rs_user.next()){
+                    class_panel.ptop.removeAll();
+                    class_panel.pmid.removeAll();
 
+                    Student_table st = new Student_table(main.rs_user.getString("major"),
+                            main.rs_user.getString("school year"));
+                    st.setBorder(new LineBorder(new Color(159, 99, 62), 10, true));
+                    class_panel.pmid.add(st);
+                    JLabel label = new JLabel("Danh sách sinh viên lớp "
+                            + main.rs_user.getString("school year")
+                            + " " + main.rs_user.getString("major")
+                            , JLabel.CENTER);
+                    label.setFont(new Font(null, Font.ITALIC, 30));
+                    class_panel.ptop.add(label, BorderLayout.CENTER);
                     student_view_panel.pmid.lpanel.faddress.setText(main.rs_user.getString("address"));
                     Format formatter = new SimpleDateFormat("dd/MM/yyyy");
                     student_view_panel.pmid.lpanel.fdob.setText(formatter.format(main.rs_user.getDate("date_of_birth").getTime()));
