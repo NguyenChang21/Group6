@@ -36,6 +36,7 @@ public class Student_edit_leftcorner_panel extends rounded_panel {
         fname.setHorizontalAlignment(JTextField.LEFT);
         fname.setBorder(BorderFactory.createEmptyBorder());
         fname.setOpaque(false);
+        fname.setEditable(false);
 
         JPanel p1 = new JPanel();
         p1.setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -56,6 +57,7 @@ public class Student_edit_leftcorner_panel extends rounded_panel {
         fdob.setHorizontalAlignment(JTextField.LEFT);
         fdob.setBorder(BorderFactory.createEmptyBorder());
         fdob.setOpaque(false);
+        fdob.setEditable(false);
 
         JPanel p2 = new JPanel();
         p2.setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -77,6 +79,7 @@ public class Student_edit_leftcorner_panel extends rounded_panel {
         fgender.setHorizontalAlignment(JTextField.LEFT);
         fgender.setBorder(BorderFactory.createEmptyBorder());
         fgender.setOpaque(false);
+        fgender.setEditable(false);
 
         JPanel p3 = new JPanel();
         p3.setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -98,6 +101,7 @@ public class Student_edit_leftcorner_panel extends rounded_panel {
         fhometown.setHorizontalAlignment(JTextField.LEFT);
         fhometown.setBorder(BorderFactory.createEmptyBorder());
         fhometown.setOpaque(false);
+        fhometown.setEditable(false);
 
         JPanel p4 = new JPanel();
         p4.setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -140,6 +144,7 @@ public class Student_edit_leftcorner_panel extends rounded_panel {
         freligion.setHorizontalAlignment(JTextField.LEFT);
         freligion.setBorder(BorderFactory.createEmptyBorder());
         freligion.setOpaque(false);
+        freligion.setEditable(false);
 
         JPanel p6 = new JPanel();
         p6.setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -161,6 +166,7 @@ public class Student_edit_leftcorner_panel extends rounded_panel {
         fethnic.setHorizontalAlignment(JTextField.LEFT);
         fethnic.setBorder(BorderFactory.createEmptyBorder());
         fethnic.setOpaque(false);
+        fethnic.setEditable(false);
 
         JPanel p7 = new JPanel();
         p7.setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -203,6 +209,7 @@ public class Student_edit_leftcorner_panel extends rounded_panel {
         fphonenumber.setHorizontalAlignment(JTextField.LEFT);
         fphonenumber.setBorder(BorderFactory.createEmptyBorder());
         fphonenumber.setOpaque(false);
+
 
         JPanel p9 = new JPanel();
         p9.setLayout(new FlowLayout(FlowLayout.LEFT));

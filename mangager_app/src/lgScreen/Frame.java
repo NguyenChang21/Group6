@@ -17,7 +17,7 @@ public class Frame extends JFrame implements ActionListener {
     public static teacher_panel teacherPanel;
     public static CardLayout cl = new CardLayout();
     public Frame(){
-
+        setTitle("Group-fine's manager app");
         setExtendedState(getExtendedState() | JFrame.MAXIMIZED_BOTH);
 //        setMinimumSize(new Dimension(1100, 730));
         setDefaultCloseOperation(EXIT_ON_CLOSE);

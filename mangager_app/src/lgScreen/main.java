@@ -25,11 +25,5 @@ public class main {
 
         frame = new Frame();
     }
-    private static void showUserInfo(ResultSet rs) throws SQLException {
-        System.out.println("Id: " + rs.getInt("msv"));
-        System.out.println("Name: " + rs.getString("lname"));
-        System.out.println("Address: " + rs.getString("address"));
-        System.out.println("Year: " + rs.getInt("school year"));
-        System.out.println("DOB: " + rs.getDate("date_of_birth"));
-    }
+
 }
