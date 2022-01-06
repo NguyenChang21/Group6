@@ -80,6 +80,7 @@ public class Student_table extends JFrame {
         JScrollPane sp = new JScrollPane(table);
         add(sp);
         pack();
+        setResizable(false);
         setLocationRelativeTo(null);
         setVisible(true);
     }

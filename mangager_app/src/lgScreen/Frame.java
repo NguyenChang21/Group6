@@ -19,7 +19,7 @@ public class Frame extends JFrame implements ActionListener {
     public Frame(){
         setTitle("Group-fine's manager app");
         setExtendedState(getExtendedState() | JFrame.MAXIMIZED_BOTH);
-//        setMinimumSize(new Dimension(1100, 730));
+        setMinimumSize(new Dimension(1350, 800));
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         constpanel = new JPanel();
